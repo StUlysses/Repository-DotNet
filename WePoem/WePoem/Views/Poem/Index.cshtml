@@ -1,0 +1,98 @@
+﻿@using WePoem.Models;
+@model ViewModel
+@{
+    ViewData["Title"] = "WePoem";
+    Layout = "~/Views/Shared/PCBack.cshtml";
+}
+<div class="container" style="width:100%;height:100%;position:relative">
+    <div id="AlertDiv" class="alert alert-primary" role="alert" style="display:none;position:absolute;left:0px;top:0px;width:100%">...</div>
+    <div style="text-align: left; padding-left: 3%; height: 90%;overflow-y:auto">
+        <h3>@(Model.Poem.Title)</h3>
+        @Html.Raw(Model.Poem.Content.Replace("###***", "</br>"))
+    </div>
+    <!--右侧导航栏-->
+    <div id="MenuDiv" style="width:6%;height:95%;position:absolute;top:0px;right:0px;display:none;border:1px solid #e3f2fd;">
+        <div style="width:100%;margin-top:10%;margin-bottom:30%">
+            <img id="UserImg" src="~/image/touxiang.jpg" style="border-radius:50%;width:100%" onclick="window.location.href='/User/Index'" />
+        </div>
+        <div style="width:100%;margin-top:10%;margin-bottom:30%">
+            <img id="CreativeImg" src="~/image/chuangzuo.jpg" style="border-radius:50%;width:100%" onclick="CheckUser('/Poem/Creative')" />
+        </div>
+        <div style="width:100%;margin-top:10%;margin-bottom:30%">
+            <img src="~/image/shiji.jpg" style="border-radius:50%;width:100%" onclick="CheckUser('/Poem/PoemCollection')" />
+        </div>
+        @*<div style="width:100%;margin-top:10%;margin-bottom:30%">
+            <img src="~/image/shoucang.jpg" style="border-radius:50%;width:100%" onclick="CheckUser('/Poem/PoemCollection')" />
+        </div>*@
+    </div>
+    <div style="height:5%;">
+        @*<div style="width:70%;height:5%;float:left;position:absolute;bottom:0px;left:0px;text-align:left">
+            <span style="margin-left:20px">刷新</span>
+            <input type="hidden" id="IsFollow" value="UnFollow"/>
+            <img src="~/image/quxiao.jpg" style="height:100%;margin-left:20px" onclick="FollowAction()" />
+        </div>*@
+        <div style="width: 30%;height:5%; float: left; position: absolute; bottom: 0px; right: 0px;text-align:right">
+            <img src="~/image/caidan.jpg" style="height:100%" onclick="MenuAction()" />
+        </div>
+    </div>
+</div>
+
+<style>
+    .test {
+        background-color: lightblue;
+        border: 1px black solid;
+    }
+</style>
+<script>
+    $(function () {
+        //点击外部 导航栏消失
+        //var menu = document.getElementById('#MenuDiv');
+        //document.addEventListener('click', function (e) {
+        //    if (menu.style.display != 'none' && e.target != menu) {
+        //        menu.style.display = 'none';
+        //    }
+        //});
+
+        //显示其他页面带来的消息
+        var msg = '@Html.Raw(Model.Msg)';
+        console.log(msg);
+        if ($.trim(msg) != '') {
+            $('#AlertDiv').text(msg);
+            $('#AlertDiv').css('display', '');
+            setTimeout(function(){ $('#AlertDiv').css('display', 'none') },2000);
+        }
+    });
+    var DisplayMenu = true;//true是显示
+    //显示菜单
+    function MenuAction() {
+        if (DisplayMenu) {
+            $('#MenuDiv').css('display', '');
+        } else {
+            $('#MenuDiv').css('display', 'none');
+        }
+        DisplayMenu = !DisplayMenu;
+    }
+    //收藏操作
+    //function FollowAction() {
+    //    var con = $('#IsFollow').text();
+    //    $.ajax({
+    //        url: '/Poem/Follow',
+    //        type: 'POST',
+    //        data: {
+    //            'action': con
+    //        },
+    //        success: function (data) {
+
+    //        }
+    //    });
+    //}
+    var uid = '@(Model.UserID)';
+    //检查登录状态
+    function CheckUser(url) {
+        if (uid == '') {
+            PopDialog('未登录', '请先登录');
+        } else {
+            window.location.href = url;
+        }
+    }
+</script>

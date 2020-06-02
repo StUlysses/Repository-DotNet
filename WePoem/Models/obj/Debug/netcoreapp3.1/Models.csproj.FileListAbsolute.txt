@@ -1,0 +1,11 @@
+D:\WorkSpace\WePoem\Models\bin\Debug\netcoreapp3.1\Models.deps.json
+D:\WorkSpace\WePoem\Models\bin\Debug\netcoreapp3.1\Models.runtimeconfig.json
+D:\WorkSpace\WePoem\Models\bin\Debug\netcoreapp3.1\Models.runtimeconfig.dev.json
+D:\WorkSpace\WePoem\Models\bin\Debug\netcoreapp3.1\Models.dll
+D:\WorkSpace\WePoem\Models\bin\Debug\netcoreapp3.1\Models.pdb
+D:\WorkSpace\WePoem\Models\obj\Debug\netcoreapp3.1\Models.AssemblyInfoInputs.cache
+D:\WorkSpace\WePoem\Models\obj\Debug\netcoreapp3.1\Models.AssemblyInfo.cs
+D:\WorkSpace\WePoem\Models\obj\Debug\netcoreapp3.1\Models.dll
+D:\WorkSpace\WePoem\Models\obj\Debug\netcoreapp3.1\Models.pdb
+D:\WorkSpace\WePoem\Models\obj\Debug\netcoreapp3.1\Models.genruntimeconfig.cache
+D:\WorkSpace\WePoem\Models\obj\Debug\netcoreapp3.1\Models.csprojAssemblyReference.cache

@@ -1,0 +1,11 @@
+D:\WorkSpace\WePoem\Services\bin\Debug\netcoreapp3.1\Services.deps.json
+D:\WorkSpace\WePoem\Services\bin\Debug\netcoreapp3.1\Services.dll
+D:\WorkSpace\WePoem\Services\bin\Debug\netcoreapp3.1\Services.pdb
+D:\WorkSpace\WePoem\Services\bin\Debug\netcoreapp3.1\Models.dll
+D:\WorkSpace\WePoem\Services\bin\Debug\netcoreapp3.1\Models.pdb
+D:\WorkSpace\WePoem\Services\obj\Debug\netcoreapp3.1\Services.csprojAssemblyReference.cache
+D:\WorkSpace\WePoem\Services\obj\Debug\netcoreapp3.1\Services.AssemblyInfoInputs.cache
+D:\WorkSpace\WePoem\Services\obj\Debug\netcoreapp3.1\Services.AssemblyInfo.cs
+D:\WorkSpace\WePoem\Services\obj\Debug\netcoreapp3.1\Services.csproj.CopyComplete
+D:\WorkSpace\WePoem\Services\obj\Debug\netcoreapp3.1\Services.dll
+D:\WorkSpace\WePoem\Services\obj\Debug\netcoreapp3.1\Services.pdb

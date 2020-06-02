@@ -1,0 +1,97 @@
+﻿
+@{
+    ViewData["Title"] = "设置";
+    Layout = "~/Views/Shared/PCBack.cshtml";
+}
+    <script src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
+<div class="container" style="width:100%;height:100%;position:relative;text-align:center;">
+    <div style="width:100%;height:5%;">
+        <span style="position:absolute;left:0px;top:0px">
+            <input type="button" value="返回" class="btn btn-primary" onclick="window.location.href='/Poem/Index'" />
+        </span>
+        <span style="position:absolute;right:0px;top:0px;@(ViewBag.UserID == "null" ? "display:none" : "")">
+            <input type="button" value="退出" class="btn btn-primary" onclick="window.location.href='/User/Logout'" />
+        </span>
+    </div>
+    <div style="text-align:center;width:80%;height:60%;border-radius:15px;margin:auto;background-color:whitesmoke">
+        <br />
+        <!--导航:登录·注册·修改-->
+        <div>
+            <ul class="nav nav-tabs justify-content-center">
+                <li class="nav-item"><a onclick="ClickLink(this)" href="#" class="nav-link active">登录</a></li>
+                <li class="nav-item"><a onclick="ClickLink(this)" href="#" class="nav-link">注册</a></li>
+                <li class="nav-item"><a onclick="ClickLink(this)" href="#" class="nav-link @(ViewBag.UserID == "null" ? "disabled" : "")">修改密码</a></li>
+            </ul>
+        </div>
+        <br /><br />
+        <!--登录-->
+        <div id="LoginDiv">
+            <div class="input-group">
+                <div class="input-group-prepend">
+                    <span class="input-group-text">用户名</span>
+                </div>
+                <input type="text" id="LoginUserName" class="form-control"/>
+            </div>
+            <br />
+            <div class="input-group">
+                <div class="input-group-prepend">
+                    <span class="input-group-text">密码</span>
+                </div>
+                <input type="password" id="LoginPassword" class="form-control" />
+                <div class="input-group-prepend">
+                    <input type="button" class="input-group-text" value="登录" onclick="LoginAction()" />
+                </div>
+            </div>
+        </div>
+        <!--注册-->
+        <div id="RegisterDiv" style="display:none">
+            <div class="input-group">
+                <div class="input-group-prepend">
+                    <span class="input-group-text">用户名</span>
+                </div>
+                <input type="text" id="RegisterUserName" class="form-control"/>
+            </div>
+            <br />
+            <div class="input-group">
+                <div class="input-group-prepend">
+                    <span class="input-group-text">密码</span>
+                </div>
+                <input type="password" id="RegisterPassword" class="form-control"/>
+                <div class="input-group-prepend">
+                    <input type="button" class="input-group-text" value="注册" onclick="RegisterUser()" />
+                </div>
+            </div>
+        </div>
+        <!--修改-->
+        <div id="EditDiv" style="display:none">
+            <div class="input-group">
+                <div class="input-group-prepend">
+                    <span class="input-group-text">用户名</span>
+                </div>
+                <input id="InfoUserName" type="text" class="form-control"/>
+            </div>
+            <br />
+            <div class="input-group">
+                <div class="input-group-prepend">
+                    <span class="input-group-text">密码</span>
+                </div>
+                <input id="InfoPassword" type="text" class="form-control"/>
+            </div>
+            <br />
+            <div class="input-group">
+                <div class="input-group-prepend">
+                    <span class="input-group-text">确认密码</span>
+                </div>
+                <input id="InfoRePassword" type="text" class="form-control"/>
+                <div class="input-group-prepend">
+                    <input type="button" class="input-group-text" onclick="EditUserInfo()" value="保存" />
+                </div>
+            </div>
+        </div>
+
+    </div>
+    <div>
+
+    </div>
+</div>
+<script src="~/js/User/IndexFcn.js"></script>

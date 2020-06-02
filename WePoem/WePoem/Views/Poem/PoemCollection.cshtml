@@ -1,0 +1,34 @@
+﻿@using WePoem.Models
+@using Models
+@model ViewModel
+@{
+    ViewData["Title"] = "PoemCollection";
+    Layout = "~/Views/Shared/PCBack.cshtml";
+}
+<script src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
+<div class="container" style="width:100%;height:100%;position:relative">
+    <div style="width:100%;height:5%;">
+        <span style="position:absolute;left:0px;top:0px" class="btn btn-primary" onclick="window.location.href='/Poem/Index'"> 返回 </span>
+    </div>
+    <br/>
+    <div>
+        <div class="list-group list-group-flush">
+            @foreach (Poem poem in Model.PoemList)
+            {
+                <a class="list-group-item" href="/Poem/Creative?pid=@poem.PoemID">@poem.Title</a>
+            }
+        </div>
+    </div>
+</div>
+<style>
+</style>
+<script>
+    $(function () {
+        $('.list-group-item').mouseover(function () {
+            $(this).addClass('active');
+        });
+        $('.list-group-item').mouseout(function () {
+            $(this).removeClass('active');
+        });
+    })
+</script>

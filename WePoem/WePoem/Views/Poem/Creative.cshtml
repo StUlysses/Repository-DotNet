@@ -1,0 +1,64 @@
+﻿@using WePoem.Models
+@model ViewModel
+@{
+    ViewData["Title"] = "Creative";
+    Layout = "~/Views/Shared/PCBack.cshtml";
+}
+<script src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
+<div class="container" style="width:100%;height:100%;position:relative">
+    <div style="width:100%;height:5%;">
+        <span style="position:absolute;left:0px;top:0px" class="btn btn-primary" onclick="window.location.href='@(Model.Poem==null?"/Poem/Index":"/Poem/PoemCollection")'"> 返回 </span>
+        <span style="position:absolute;right:0px;top:0px" class="btn btn-primary" onclick="SaveCreative()">保存</span>
+    </div>
+    <br />
+    <div id="PoemTitle" style="width:100%;height:5%;background-color:white;" contenteditable="true">
+        @(Model.Poem == null ? "" : Model.Poem.Title)
+    </div>
+    <br />
+    <textarea id="PoemContent" class="form-control" style="width:100%;height:80%;background-color:white;">
+            @(Model.Poem == null ? "" : Model.Poem.Content.Replace("###***","\r\n"))
+        </textarea>
+</div>
+<style>
+    .test {
+        background-color: lightblue;
+        border: 1px black solid;
+    }
+</style>
+<script>
+    //保存诗歌
+    function SaveCreative() {
+        var title = $('#PoemTitle')[0].innerHTML;
+        if ($.trim(title) == '') {
+            $('#PoemTitle').attr('data-original-title', '标题不能为空');
+            $('#PoemTitle').tooltip('show');
+            setTimeout(function () { $('#PoemTitle').tooltip('dispose') }, 2000);
+            return;
+        }
+        var content = $('#PoemContent').val();
+        if ($.trim(content) == '') {
+            $('#PoemContent').attr('data-original-title', '内容不能为空');
+            $('#PoemContent').tooltip('show');
+            setTimeout(function () { $('#PoemTitle').tooltip('dispose') }, 2000);
+            return;
+        }
+        $.ajax({
+            url: '/Poem/Creative',
+            type: 'POST',
+            data: {
+                'title': title,
+                'content': content,
+                'id':'@(Model.Poem == null ? "" : Model.Poem.PoemID.ToString())'
+            },
+            success: function (data) {
+                if (data.code == 200) {
+                    window.location.href = '/Poem/Index?msg='+data.msg;
+                }else if(data.code == 201) {
+                    PopDialog('保存成功', data.msg);
+                }else {
+                    PopDialog('保存失败', data.msg);
+                }
+            }
+        });
+    }
+</script>

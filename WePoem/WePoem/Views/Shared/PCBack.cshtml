@@ -1,0 +1,85 @@
+﻿<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <meta name="viewport" content="initial-scale=1,maximum-scale=1, minimum-scale=1">
+    <link href="~/lib/bootstrap/dist/css/bootstrap.min.css" rel="stylesheet" />
+    <link rel="icon" type="image/x-icon" href="~/chuangzuo.ico"/>
+    <script src="~/lib/jquery/dist/jquery.min.js"></script>
+    <script src="~/lib/bootstrap/dist/js/bootstrap.min.js"></script>
+    <title>@ViewBag.Title</title>
+    <style>
+        html, body {
+            height: 100%;
+            width: 100%;
+            margin: 0px;
+            padding: 0px
+        }
+
+        #PCBack_div {
+            height: 95%;
+            width: 60%;
+            background-color: ghostwhite;
+            margin-left: auto;
+            margin-right: auto;
+            padding: 3%;
+            border-radius: 15px
+        }
+    </style>
+</head>
+<body style="text-align:center">
+    <div id="PCBack_div" style="width:100%;height:100%">
+        @RenderBody()
+    </div>
+
+    <!-- Modal -->
+    <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="exampleModalLabel">...</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div id="DislogContent" class="modal-body">
+                    ...
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-primary" data-dismiss="modal">确定</button>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- button -->
+    <button type="button" id="PopModel" hidden data-toggle="modal" data-target="#exampleModal">
+        Launch demo modal
+    </button>
+
+    <script type="text/javascript">
+        $('[data-toggle="tooltip"]').tooltip()
+        try {
+            //判断是否是手机，是手机则旁边不留白
+            if (/Android|webOS|iPhone|iPod|BlackBerry/i.test(navigator.userAgent)) {
+                //console.log('Phone');
+                $('#PCBack_div').css('width', '100%');
+                var Menu = $('#MenuDiv');
+                if (typeof (Menu) != 'undefined') {
+                    Menu.css('width','10%');
+                }
+            } else {
+                //console.log('PC');
+                $('#PCBack_div').css('width', '60%');
+            }
+        } catch (e) { }
+
+        //弹出模态框
+        function PopDialog(title,content) {
+            $('#exampleModalLabel').text(title);
+            $('#DislogContent').text(content);
+            $('#PopModel').click();
+        }
+    </script>
+</body>
+</html >
