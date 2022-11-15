@@ -2,7 +2,7 @@
 
 整体框架使用.NET6 MVC
 
-前端使用H5,JS,bootstrap4做整体风格和流式布局，Echarts将统计数据做图标展示
+前端使用H5,JS,bootstrap4做整体风格和流式布局，Echarts将统计数据做图表展示
 
 数据库使用SQL Server存储普通数据，EF Core6做ORM，MongoDb存储统计数据，一方面易于扩展，一方面性能较优
 
