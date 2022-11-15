@@ -1,0 +1,172 @@
+时间:2022-11-10 10:08:06,478 内容: Application started. Press Ctrl+C to shut down.
+时间:2022-11-10 10:08:06,489 内容: Hosting environment: Development
+时间:2022-11-10 10:08:06,492 内容: Content root path: D:\WorkSpace\Menieres\Meniere\
+时间:2022-11-10 10:08:06,674 内容: ::1:49179——Home/Index
+时间:2022-11-10 10:08:42,922 内容: Application started. Press Ctrl+C to shut down.
+时间:2022-11-10 10:08:42,933 内容: Hosting environment: Development
+时间:2022-11-10 10:08:42,936 内容: Content root path: D:\WorkSpace\Menieres\Meniere\
+时间:2022-11-10 10:08:43,040 内容: ::1:49179——Home/Index
+时间:2022-11-10 10:08:56,415 内容: ::1:49179——Home/Info
+时间:2022-11-10 10:09:06,516 内容: ::1:49179——Index/Statistical
+时间:2022-11-10 10:09:19,504 内容: Application started. Press Ctrl+C to shut down.
+时间:2022-11-10 10:09:19,514 内容: Hosting environment: Development
+时间:2022-11-10 10:09:19,518 内容: Content root path: D:\WorkSpace\Menieres\Meniere\
+时间:2022-11-10 10:09:19,626 内容: ::1:49179——Home/Index
+时间:2022-11-10 10:09:29,556 内容: ::1:49179——Home/Index
+时间:2022-11-10 10:09:40,816 内容: ::1:49179——Index/Statistical
+时间:2022-11-10 10:09:45,926 内容: ::1:49179——Home/Index
+时间:2022-11-10 10:09:47,336 内容: ::1:49179——Index/Complaint
+时间:2022-11-10 10:27:25,343 内容: Application started. Press Ctrl+C to shut down.
+时间:2022-11-10 10:27:25,350 内容: Hosting environment: Development
+时间:2022-11-10 10:27:25,352 内容: Content root path: D:\WorkSpace\Menieres\Meniere\
+时间:2022-11-10 10:27:25,413 内容: ::1:49179——Index/Statistical
+时间:2022-11-10 10:37:40,793 内容: ::1:49179——Statistical/GetStatisticModel
+时间:2022-11-10 10:39:50,583 内容: ::1:49179——Index/Statistical
+时间:2022-11-10 10:39:55,348 内容: ::1:49179——Statistical/GetStatisticModel
+时间:2022-11-10 11:00:50,289 内容: Application started. Press Ctrl+C to shut down.
+时间:2022-11-10 11:00:50,300 内容: Hosting environment: Development
+时间:2022-11-10 11:00:50,304 内容: Content root path: D:\WorkSpace\Menieres\Meniere\
+时间:2022-11-10 11:00:50,399 内容: ::1:49179——Home/Index
+时间:2022-11-10 11:00:53,922 内容: ::1:49179——Index/Statistical
+时间:2022-11-10 11:00:55,085 内容: ::1:49179——Statistical/JoinStatistic
+时间:2022-11-10 11:02:54,939 内容: Application started. Press Ctrl+C to shut down.
+时间:2022-11-10 11:02:54,948 内容: Hosting environment: Development
+时间:2022-11-10 11:02:54,951 内容: Content root path: D:\WorkSpace\Menieres\Meniere\
+时间:2022-11-10 11:02:55,051 内容: ::1:49179——Home/Index
+时间:2022-11-10 11:03:19,051 内容: ::1:49179——Index/Statistical
+时间:2022-11-10 11:03:22,895 内容: ::1:49179——Statistical/JoinStatistic
+时间:2022-11-10 11:04:15,762 内容: ::1:49179——Statistical/JoinStatistic
+时间:2022-11-10 11:04:22,645 内容: ::1:49179——Statistical/JoinStatistic
+时间:2022-11-10 11:04:33,349 内容: ::1:49179——Statistical/JoinStatistic
+时间:2022-11-10 11:06:39,042 内容: ::1:49179——Statistical/JoinStatistic
+时间:2022-11-10 13:45:40,736 内容: Application started. Press Ctrl+C to shut down.
+时间:2022-11-10 13:45:40,744 内容: Hosting environment: Development
+时间:2022-11-10 13:45:40,746 内容: Content root path: D:\WorkSpace\Menieres\Meniere\
+时间:2022-11-10 13:45:40,795 内容: ::1:49179——Statistical/JoinStatistic
+时间:2022-11-10 13:47:09,404 内容: ::1:49179——Statistical/JoinStatistic
+时间:2022-11-10 13:48:21,622 内容: ::1:49179——Statistical/JoinStatistic
+时间:2022-11-10 13:48:59,354 内容: ::1:49179——Statistical/JoinStatistic
+时间:2022-11-10 13:54:23,930 内容: Application started. Press Ctrl+C to shut down.
+时间:2022-11-10 13:54:23,940 内容: Hosting environment: Development
+时间:2022-11-10 13:54:23,942 内容: Content root path: D:\WorkSpace\Menieres\Meniere\
+时间:2022-11-10 13:54:23,987 内容: ::1:49179——Statistical/JoinStatistic
+时间:2022-11-10 13:56:35,929 内容: ::1:49179——Statistical/JoinStatistic
+时间:2022-11-10 13:56:50,507 内容: ::1:49179——Statistical/JoinStatistic
+时间:2022-11-10 13:57:26,743 内容: ::1:49179——Statistical/JoinStatistic
+时间:2022-11-10 13:58:10,791 内容: ::1:49179——Statistical/JoinStatistic
+时间:2022-11-10 13:58:34,805 内容: ::1:49179——Statistical/JoinStatistic
+时间:2022-11-10 13:58:48,801 内容: ::1:49179——Statistical/JoinStatistic
+时间:2022-11-10 13:58:59,477 内容: ::1:49179——Statistical/JoinStatistic
+时间:2022-11-10 13:59:59,890 内容: ::1:49179——Statistical/JoinStatistic
+时间:2022-11-10 14:00:16,833 内容: ::1:49179——Statistical/JoinStatistic
+时间:2022-11-10 14:01:04,754 内容: ::1:49179——Statistical/JoinStatistic
+时间:2022-11-10 14:01:15,265 内容: ::1:49179——Statistical/JoinStatistic
+时间:2022-11-10 14:01:24,800 内容: ::1:49179——Statistical/JoinStatistic
+时间:2022-11-10 14:01:38,913 内容: ::1:49179——Statistical/JoinStatistic
+时间:2022-11-10 14:06:08,627 内容: ::1:49179——Statistical/JoinStatistic
+时间:2022-11-10 14:06:23,295 内容: ::1:49179——Statistical/JoinStatistic
+时间:2022-11-10 14:06:28,940 内容: ::1:49179——Index/Statistical
+时间:2022-11-10 14:06:30,931 内容: ::1:49179——Statistical/GetStatisticModel
+时间:2022-11-10 14:06:33,006 内容: ::1:49179——Index/Statistical
+时间:2022-11-10 14:06:34,022 内容: ::1:49179——Statistical/JoinStatistic
+时间:2022-11-10 14:08:04,143 内容: ::1:49179——Statistical/SaveStatistical
+时间:2022-11-10 14:08:04,271 内容: ::1:49179——Index/Statistical
+时间:2022-11-10 14:08:06,787 内容: ::1:49179——Statistical/GetStatisticModel
+时间:2022-11-10 14:08:18,682 内容: ::1:49179——Index/Statistical
+时间:2022-11-10 14:08:21,835 内容: ::1:49179——Statistical/GetStatisticModel
+时间:2022-11-10 14:08:47,463 内容: Application started. Press Ctrl+C to shut down.
+时间:2022-11-10 14:08:47,474 内容: Hosting environment: Development
+时间:2022-11-10 14:08:47,484 内容: Content root path: D:\WorkSpace\Menieres\Meniere\
+时间:2022-11-10 14:08:47,591 内容: ::1:49179——Home/Index
+时间:2022-11-10 14:08:51,014 内容: ::1:49179——Index/Statistical
+时间:2022-11-10 14:08:52,658 内容: ::1:49179——Statistical/GetStatisticModel
+时间:2022-11-10 14:11:11,109 内容: Application started. Press Ctrl+C to shut down.
+时间:2022-11-10 14:11:11,119 内容: Hosting environment: Development
+时间:2022-11-10 14:11:11,129 内容: Content root path: D:\WorkSpace\Menieres\Meniere\
+时间:2022-11-10 14:11:11,216 内容: ::1:49179——Home/Index
+时间:2022-11-10 14:11:17,499 内容: ::1:49179——Index/Statistical
+时间:2022-11-10 14:11:19,311 内容: ::1:49179——Statistical/GetStatisticModel
+时间:2022-11-10 14:11:48,177 内容: ::1:49179——Index/Statistical
+时间:2022-11-10 14:11:51,181 内容: ::1:49179——Statistical/GetStatisticModel
+时间:2022-11-10 14:14:22,242 内容: ::1:49179——Index/Statistical
+时间:2022-11-10 14:14:24,698 内容: ::1:49179——Statistical/GetStatisticModel
+时间:2022-11-10 14:15:03,258 内容: Application started. Press Ctrl+C to shut down.
+时间:2022-11-10 14:15:03,272 内容: Hosting environment: Development
+时间:2022-11-10 14:15:03,281 内容: Content root path: D:\WorkSpace\Menieres\Meniere\
+时间:2022-11-10 14:15:03,377 内容: ::1:49179——Home/Index
+时间:2022-11-10 14:15:08,910 内容: ::1:49179——Index/Statistical
+时间:2022-11-10 14:15:10,813 内容: ::1:49179——Statistical/GetStatisticModel
+时间:2022-11-10 14:16:25,393 内容: Application started. Press Ctrl+C to shut down.
+时间:2022-11-10 14:16:25,401 内容: Hosting environment: Development
+时间:2022-11-10 14:16:25,404 内容: Content root path: D:\WorkSpace\Menieres\Meniere\
+时间:2022-11-10 14:16:25,466 内容: ::1:49179——Index/Statistical
+时间:2022-11-10 14:16:27,705 内容: ::1:49179——Statistical/GetStatisticModel
+时间:2022-11-10 14:17:22,408 内容: ::1:49179——Index/Statistical
+时间:2022-11-10 14:17:25,223 内容: ::1:49179——Statistical/GetStatisticModel
+时间:2022-11-10 14:17:50,550 内容: ::1:49179——Index/Statistical
+时间:2022-11-10 14:17:57,506 内容: ::1:49179——Index/Statistical
+时间:2022-11-10 14:18:00,609 内容: ::1:49179——Statistical/GetStatisticModel
+时间:2022-11-10 14:19:05,395 内容: ::1:49179——Index/Statistical
+时间:2022-11-10 14:19:13,893 内容: ::1:49179——Statistical/GetStatisticModel
+时间:2022-11-10 14:21:17,421 内容: ::1:49179——Index/Statistical
+时间:2022-11-10 14:21:20,357 内容: ::1:49179——Statistical/GetStatisticModel
+时间:2022-11-10 14:22:50,438 内容: ::1:49179——Index/Statistical
+时间:2022-11-10 14:22:53,000 内容: ::1:49179——Statistical/GetStatisticModel
+时间:2022-11-10 14:23:29,487 内容: Application started. Press Ctrl+C to shut down.
+时间:2022-11-10 14:23:29,495 内容: Hosting environment: Development
+时间:2022-11-10 14:23:29,498 内容: Content root path: D:\WorkSpace\Menieres\Meniere\
+时间:2022-11-10 14:23:29,549 内容: ::1:49179——Index/Statistical
+时间:2022-11-10 14:23:32,098 内容: ::1:49179——Statistical/GetStatisticModel
+时间:2022-11-10 14:24:08,126 内容: ::1:49179——Index/Statistical
+时间:2022-11-10 14:24:10,301 内容: ::1:49179——Statistical/GetStatisticModel
+时间:2022-11-10 14:24:19,344 内容: ::1:49179——Index/Statistical
+时间:2022-11-10 14:24:22,293 内容: ::1:49179——Statistical/GetStatisticModel
+时间:2022-11-10 14:31:46,714 内容: ::1:49179——Index/Statistical
+时间:2022-11-10 14:31:49,590 内容: ::1:49179——Statistical/GetStatisticModel
+时间:2022-11-10 14:34:05,995 内容: ::1:49179——Index/Statistical
+时间:2022-11-10 14:34:07,274 内容: ::1:49179——Statistical/GetStatisticModel
+时间:2022-11-10 14:36:07,936 内容: ::1:49179——Index/Statistical
+时间:2022-11-10 14:36:09,893 内容: ::1:49179——Statistical/GetStatisticModel
+时间:2022-11-10 14:41:26,439 内容: ::1:49179——Index/Statistical
+时间:2022-11-10 14:41:30,127 内容: ::1:49179——Statistical/GetStatisticModel
+时间:2022-11-10 14:42:30,563 内容: ::1:49179——Index/Statistical
+时间:2022-11-10 14:42:33,811 内容: ::1:49179——Statistical/GetStatisticModel
+时间:2022-11-10 14:43:41,448 内容: ::1:49179——Index/Statistical
+时间:2022-11-10 14:43:45,524 内容: ::1:49179——Statistical/GetStatisticModel
+时间:2022-11-10 14:44:07,896 内容: ::1:49179——Index/Statistical
+时间:2022-11-10 14:44:09,484 内容: ::1:49179——Statistical/GetStatisticModel
+时间:2022-11-10 14:44:47,855 内容: ::1:49179——Statistical/JoinStatistic
+时间:2022-11-10 14:46:07,859 内容: Application started. Press Ctrl+C to shut down.
+时间:2022-11-10 14:46:07,874 内容: Hosting environment: Development
+时间:2022-11-10 14:46:07,884 内容: Content root path: D:\WorkSpace\Menieres\Meniere\
+时间:2022-11-10 14:46:07,973 内容: ::1:49179——Home/Index
+时间:2022-11-10 14:46:15,947 内容: ::1:49179——Index/Statistical
+时间:2022-11-10 14:46:17,979 内容: ::1:49179——Statistical/GetStatisticModel
+时间:2022-11-10 14:47:13,380 内容: Application started. Press Ctrl+C to shut down.
+时间:2022-11-10 14:47:13,388 内容: Hosting environment: Development
+时间:2022-11-10 14:47:13,391 内容: Content root path: D:\WorkSpace\Menieres\Meniere\
+时间:2022-11-10 14:47:13,448 内容: ::1:49179——Index/Statistical
+时间:2022-11-10 14:47:17,205 内容: ::1:49179——Statistical/GetStatisticModel
+时间:2022-11-10 14:47:47,136 内容: Application started. Press Ctrl+C to shut down.
+时间:2022-11-10 14:47:47,144 内容: Hosting environment: Development
+时间:2022-11-10 14:47:47,146 内容: Content root path: D:\WorkSpace\Menieres\Meniere\
+时间:2022-11-10 14:47:47,194 内容: ::1:49179——Index/Statistical
+时间:2022-11-10 14:47:51,694 内容: ::1:49179——Statistical/GetStatisticModel
+时间:2022-11-10 15:37:13,999 内容: Application started. Press Ctrl+C to shut down.
+时间:2022-11-10 15:37:14,011 内容: Hosting environment: Development
+时间:2022-11-10 15:37:14,015 内容: Content root path: D:\WorkSpace\Menieres\Meniere\
+时间:2022-11-10 15:37:14,116 内容: ::1:49179——Home/Index
+时间:2022-11-10 15:37:26,235 内容: Application started. Press Ctrl+C to shut down.
+时间:2022-11-10 15:37:26,246 内容: Hosting environment: Development
+时间:2022-11-10 15:37:26,256 内容: Content root path: D:\WorkSpace\Menieres\Meniere\
+时间:2022-11-10 15:37:26,345 内容: ::1:49179——Home/Index
+时间:2022-11-10 15:37:42,412 内容: ::1:49179——Index/Statistical
+时间:2022-11-10 15:37:44,838 内容: ::1:49179——Statistical/GetStatisticModel
+时间:2022-11-10 15:37:57,181 内容: ::1:49179——Index/Statistical
+时间:2022-11-10 15:37:59,162 内容: ::1:49179——Statistical/GetStatisticModel
+时间:2022-11-10 15:38:10,445 内容: ::1:49179——Index/Statistical
+时间:2022-11-10 15:38:12,300 内容: ::1:49179——Statistical/GetStatisticModel
+时间:2022-11-10 15:38:23,710 内容: ::1:49179——Index/Statistical
+时间:2022-11-10 15:38:26,853 内容: ::1:49179——Statistical/GetStatisticModel
+时间:2022-11-10 15:38:37,652 内容: ::1:49179——Index/Statistical
+时间:2022-11-10 15:38:40,811 内容: ::1:49179——Statistical/GetStatisticModel

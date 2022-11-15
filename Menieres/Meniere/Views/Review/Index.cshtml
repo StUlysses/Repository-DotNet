@@ -1,0 +1,109 @@
+﻿@using Meniere.ViewModels
+@using Models
+@model ViewModel
+@{
+    ViewData["Title"] = "审核-Meniere";
+    ViewData["desc"] = "";
+    ViewData["keyword"] = "";
+    Layout = "~/Views/Shared/NovelLayout.cshtml";
+}
+<style>
+    .acricle_td {
+        text-align: left;
+    }
+
+    .author {
+        width: 70%;
+        float: left;
+        color: gray;
+        font-size: small
+    }
+
+    .date {
+        width: 30%;
+        float: left;
+        text-align: right;
+        color: gray;
+        font-size: small
+    }
+    .Nav_Word {
+        color: black;
+        font-family: STXingkai;
+    }
+
+    .navbar1 {
+        position: relative;
+        display: -ms-flexbox;
+        display: flex;
+        align-items: center;
+    }
+
+    .nav-link1 {
+        display: block;
+        padding: 0.5rem 0.5rem;
+    }
+</style>
+<nav id="navbar" class="navbar1 badge-pill" style="width:100%;">
+    <a class="nav-link1 Nav_Word" href="/Review/Index?currentPage=1&result=0&type=1">文章</a>
+    <a class="nav-link1 Nav_Word" href="/Review/Index?currentPage=1&result=0&type=2">游戏</a>
+    <div class="dropdown" style="position:absolute;right:2vw">
+        <a class="btn btn-secondary dropdown-toggle" href="#" role="button" id="dropdownMenuLink" data-toggle="dropdown" aria-expanded="false">
+            过滤
+        </a>
+
+        <div class="dropdown-menu" aria-labelledby="dropdownMenuLink">
+            <a class="dropdown-item" href="/Review/Index?currentPage=1&result=0&type=@Model.Mode">未通过</a>
+            <a class="dropdown-item" href="/Review/Index?currentPage=1&result=1&type=@Model.Mode">已通过</a>
+            <a class="dropdown-item" href="/Review/Index?currentPage=1&result=2&type=@Model.Mode">已拒绝</a>
+            <a class="dropdown-item" href="/Review/Index?currentPage=1&result=-1&type=@Model.Mode">已删除</a>
+        </div>
+    </div>
+</nav>
+<div class="container">
+    <div class="list-group list-group">
+        @foreach (Article item in Model.ArticleList)
+        {
+            <div style="text-align: left; opacity: 0.5" class="list-group-item">
+                <div><a href="/Review/ActicleReview?guid=@item.Guid">@item.Title</a></div>
+                <div class="author">@item.Author</div>
+                <div class="date">@(DateTime.Now.Day == item.Date.Day ? item.Date.ToString("HH:mm:ss"): item.Date.ToString("yyyy-MM-dd"))</div>
+            </div>
+        }
+    </div>
+    <br />
+    <nav aria-label="Page navigation example">
+        <ul class="pagination justify-content-center">
+            @if (Model.CurrentPage > 1)
+            {
+                <li class="page-item">
+                    <a class="page-link" href="/Home/Index?currentPage=@(Model.CurrentPage-1)" aria-label="Previous">
+                        <span aria-hidden="true">&laquo;</span>
+                    </a>
+                </li>
+            }
+            @for (int i = Model.CurrentPage - 2, j = 5; i <= Model.TotalPage && j > 0; i++, j--)
+            {
+                if (i > 0)
+                    if (Model.CurrentPage == i)
+                    {
+                        <li class="page-item active" aria-current="page">
+                            <a class="page-link" href="#">@i</a>
+                        </li>
+                    }
+                    else
+                    {
+                        <li class="page-item"><a class="page-link" href="/Home/Index?currentPage=@i">@i</a></li>
+                    }
+            }
+            @if (Model.CurrentPage < Model.TotalPage)
+            {
+                <li class="page-item">
+                    <a class="page-link" href="/Home/Index?currentPage=@(Model.CurrentPage+1)" aria-label="Next">
+                        <span aria-hidden="true">&raquo;</span>
+                    </a>
+                </li>
+            }
+        </ul>
+    </nav>
+    <br />
+</div>

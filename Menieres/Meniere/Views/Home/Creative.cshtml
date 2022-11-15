@@ -1,0 +1,141 @@
+﻿@using Meniere.ViewModels
+@model ViewModel
+@{
+    ViewData["Title"] = "发帖-Meniere";
+    ViewData["desc"] = "Meniere-梅尼埃网：耳源性眩晕统计网站";
+    ViewData["keyword"] = "Meniere,梅尼埃,眩晕,头晕,美尼尔";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+<style>
+    .Create_Img{
+        float:left;
+        height:100px;
+        width:100px;
+    }
+</style>
+<div class="container-fluid">
+    <br/>
+    <div class="input-group mb-3">
+        <div class="input-group-prepend">
+            <span class="input-group-text">标题</span>
+        </div>
+        <input type="text" id="create_title" class="form-control" maxlength="100" required>
+    </div>
+    <div class="input-group mb-3">
+        <div class="input-group-prepend">
+            <span class="input-group-text">作者</span>
+        </div>
+        <input type="text" id="create_author" class="form-control" value="@(Model.User)" max="50" required>
+    </div>
+    <div class="input-group mb-3">
+        <div class="input-group-prepend">
+            <span class="input-group-text">邮箱</span>
+        </div>
+        <input type="text" id="create_email" class="form-control" maxlength="100" required>
+    </div>
+    
+    <div class="input-group mb-3">
+        <div class="input-group-prepend">
+            <span class="input-group-text">图片</span>
+        </div>
+        <div class="form-control" style="height:120px" id="smallCover">
+        </div>
+        <div class="input-group-append">
+            <input type="file" id="AddImg_Creative"  accept="image/png,image/jpeg,image/jpg" multiple hidden/>
+            <button type="button" onclick="$('#AddImg_Creative').click()" class="btn alert-primary">添加图片</button>
+          </div>
+    </div>
+    <div class="input-group">
+        <div class="input-group-prepend">
+            <span class="input-group-text">正文</span>
+        </div>
+        <textarea class="form-control" id="create_content" aria-label="With textarea" rows="16" required></textarea>
+    </div>
+    <br/>
+    <button type="button" onclick="Finish()" class="btn btn-outline-success">提交</button>
+</div>
+<script src="~/filter/filter.js"></script>
+<script>
+    $(function(){
+        document.getElementById("AddImg_Creative").addEventListener("change",function(){
+            let files = this.files;
+			let ImgDiv = document.getElementById("smallCover");
+			ImgDiv.innerHTML = "";
+			for(let i = 0;i < files.length;i++){
+				ImgDiv.innerHTML += '<div><img id="img'+i+'" class="Create_Img"/></div>'
+				let imgList = document.getElementById("img"+i);
+				imgList.src = window.URL.createObjectURL(files[i]);
+                console.log(files[i]);
+			}
+		});	
+    
+    })
+    //提交功能
+    function Finish() {
+        let title = $('#create_title').val();
+        if (title == '') {
+            return tooltipTool('create_title', '请起个标题');
+        }
+        let author = $('#create_author').val();
+        if (author == '') {
+            return tooltipTool('create_author','请留下大名');
+        }
+        let email = $('#create_email').val();
+        if (email == '') {
+            return tooltipTool('create_email', '请填写邮箱');
+        }
+        let regEmail = /^([a-zA-Z0-9_-])+@@([a-zA-Z0-9_-])+.([a-zA-Z0-9_-])+/;
+        if (!regEmail.test(email)) {
+            return tooltipTool('create_email', '请检查邮箱格式');
+        }
+        let content = $('#create_content').val();
+        if (content == '') {
+            return tooltipTool('create_content', '内容不能为空');
+        }
+        content = ContentFilter(content);
+        $.ajax({
+            url: '/Home/SaveArticle',
+            type: 'POST',
+            data: {
+                'title': title,
+                'author': author,
+                'AuthorEmail': email,
+                'content': content
+            },
+            async: 'true',
+            success: function (data) {
+                if (data.code == 200) {
+                    //另外异步保存图片
+                    SaveImg(data.msg);
+                    window.location.href = '/Home/Index?currentPage=1';
+                } else {
+                    $('#AlertDiv').text(data.msg);
+                    $('#AlertDiv').css('display', '');
+                    setTimeout(function () { $('#AlertDiv').css('display', 'none') }, 2500);
+                }
+            }
+        });
+    }
+    //异步保存图片
+    function SaveImg(id) {
+        let data = new FormData();
+        data.append('id', id);
+        $.each($('#AddImg_Creative')[0].files, function (i, file) {
+            data.append('upload_file', file);
+        });
+        $.ajax({
+            url: '/Home/SaveArticleImg',
+            type: 'POST',
+	        dataType: 'json',
+            data: data,
+            contentType : false,
+            processData : false,
+            async: 'true',
+            success: function (data) {
+                if (data.code == 200) {
+                    Finish(data.msg);
+                }
+            }
+        });
+    }
+</script>

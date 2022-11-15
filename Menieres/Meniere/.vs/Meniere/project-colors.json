@@ -1,0 +1,36 @@
+{
+  "Version": 1,
+  "ProjectMap": {
+    "0f6123e4-5e51-49b4-9d26-6a8041c6555c": {
+      "ProjectGuid": "0f6123e4-5e51-49b4-9d26-6a8041c6555c",
+      "DisplayName": "Meniere",
+      "ColorIndex": 0
+    },
+    "a389cf99-c22f-495c-b1d0-e80407b8433a": {
+      "ProjectGuid": "a389cf99-c22f-495c-b1d0-e80407b8433a",
+      "DisplayName": "Models",
+      "ColorIndex": 1
+    },
+    "a2fe74e1-b743-11d0-ae1a-00a0c90fffc3": {
+      "ProjectGuid": "a2fe74e1-b743-11d0-ae1a-00a0c90fffc3",
+      "DisplayName": "杂项文件",
+      "ColorIndex": -1
+    },
+    "fd300172-3ac9-4f4d-8202-31aa441fb78c": {
+      "ProjectGuid": "fd300172-3ac9-4f4d-8202-31aa441fb78c",
+      "DisplayName": "Services",
+      "ColorIndex": 2
+    },
+    "534de98c-8ccc-4533-8afd-d42850b270e0": {
+      "ProjectGuid": "534de98c-8ccc-4533-8afd-d42850b270e0",
+      "DisplayName": "Models",
+      "ColorIndex": 3
+    },
+    "4453560a-5056-486a-88f7-23dce866bb6a": {
+      "ProjectGuid": "4453560a-5056-486a-88f7-23dce866bb6a",
+      "DisplayName": "Services",
+      "ColorIndex": 4
+    }
+  },
+  "NextColorIndex": 5
+}

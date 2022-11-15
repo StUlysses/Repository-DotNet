@@ -1,0 +1,36 @@
+时间:2022-11-11 15:48:58,431 内容: Application started. Press Ctrl+C to shut down.
+时间:2022-11-11 15:48:58,451 内容: Hosting environment: Development
+时间:2022-11-11 15:48:58,457 内容: Content root path: D:\WorkSpace\Menieres\Meniere\
+时间:2022-11-11 15:48:58,638 内容: ::1:49179——Statistical/JoinStatistic
+时间:2022-11-11 16:07:43,344 内容: Application started. Press Ctrl+C to shut down.
+时间:2022-11-11 16:07:43,361 内容: Hosting environment: Development
+时间:2022-11-11 16:07:43,376 内容: Content root path: D:\WorkSpace\Menieres\Meniere\
+时间:2022-11-11 16:07:43,545 内容: ::1:49179——Home/Index
+时间:2022-11-11 16:07:48,848 内容: ::1:49179——Index/Statistical
+时间:2022-11-11 16:07:51,272 内容: ::1:49179——Statistical/GetStatisticModel
+时间:2022-11-11 16:07:59,075 内容: ::1:49179——Statistical/GetStatisticModel
+时间:2022-11-11 16:08:02,019 内容: ::1:49179——Statistical/GetStatisticModel
+时间:2022-11-11 16:08:14,153 内容: ::1:49179——Statistical/GetStatisticModel
+时间:2022-11-11 16:09:21,732 内容: Application started. Press Ctrl+C to shut down.
+时间:2022-11-11 16:09:21,770 内容: Hosting environment: Development
+时间:2022-11-11 16:09:21,778 内容: Content root path: D:\WorkSpace\Menieres\Meniere\
+时间:2022-11-11 16:09:21,931 内容: ::1:49179——Home/Index
+时间:2022-11-11 16:09:27,957 内容: ::1:49179——Index/Statistical
+时间:2022-11-11 16:09:30,389 内容: ::1:49179——Statistical/GetStatisticModel
+时间:2022-11-11 16:09:43,370 内容: ::1:49179——Statistical/GetStatisticModel
+时间:2022-11-11 16:09:47,970 内容: ::1:49179——Statistical/GetStatisticModel
+时间:2022-11-11 16:10:18,168 内容: ::1:49179——Statistical/GetStatisticModel
+时间:2022-11-11 16:10:26,909 内容: ::1:49179——Index/Statistical
+时间:2022-11-11 16:10:29,172 内容: ::1:49179——Statistical/GetStatisticModel
+时间:2022-11-11 16:11:12,154 内容: ::1:49179——Statistical/GetStatisticModel
+时间:2022-11-11 16:11:19,753 内容: ::1:49179——Index/Statistical
+时间:2022-11-11 16:11:21,987 内容: ::1:49179——Statistical/GetStatisticModel
+时间:2022-11-11 16:12:36,118 内容: Application started. Press Ctrl+C to shut down.
+时间:2022-11-11 16:12:36,135 内容: Hosting environment: Development
+时间:2022-11-11 16:12:36,148 内容: Content root path: D:\WorkSpace\Menieres\Meniere\
+时间:2022-11-11 16:12:36,283 内容: ::1:49179——Home/Index
+时间:2022-11-11 16:12:41,204 内容: ::1:49179——Index/Statistical
+时间:2022-11-11 16:12:42,256 内容: ::1:49179——Statistical/JoinStatistic
+时间:2022-11-11 16:14:02,526 内容: ::1:49179——Statistical/SaveStatistical
+时间:2022-11-11 16:14:03,427 内容: ::1:49179——Index/Statistical
+时间:2022-11-11 16:14:05,440 内容: ::1:49179——Statistical/GetStatisticModel

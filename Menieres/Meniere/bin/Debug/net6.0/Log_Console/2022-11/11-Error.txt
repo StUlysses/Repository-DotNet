@@ -1,0 +1,180 @@
+时间:2022-11-11 16:08:22,050 内容: 获取统计模型
+System.TimeoutException: A timeout occurred after 30000ms selecting a server using CompositeServerSelector{ Selectors = MongoDB.Driver.MongoClient+AreSessionsSupportedServerSelector, LatencyLimitingServerSelector{ AllowedLatencyRange = 00:00:00.0150000 }, OperationsCountServerSelector }. Client view of cluster state is { ClusterId : "1", Type : "Unknown", State : "Disconnected", Servers : [{ ServerId: "{ ClusterId : 1, EndPoint : "127.0.0.1:27017" }", EndPoint: "127.0.0.1:27017", ReasonChanged: "Heartbeat", State: "Disconnected", ServerVersion: , TopologyVersion: , Type: "Unknown", HeartbeatException: "MongoDB.Driver.MongoConnectionException: An exception occurred while opening a connection to the server.
+ ---> System.Net.Internals.SocketExceptionFactory+ExtendedSocketException (10061): 由于目标计算机积极拒绝，无法连接。 127.0.0.1:27017
+   at System.Net.Sockets.Socket.DoConnect(EndPoint endPointSnapshot, SocketAddress socketAddress)
+   at System.Net.Sockets.Socket.Connect(EndPoint remoteEP)
+   at MongoDB.Driver.Core.Connections.TcpStreamFactory.Connect(Socket socket, EndPoint endPoint, CancellationToken cancellationToken)
+   at MongoDB.Driver.Core.Connections.TcpStreamFactory.CreateStream(EndPoint endPoint, CancellationToken cancellationToken)
+   at MongoDB.Driver.Core.Connections.BinaryConnection.OpenHelper(CancellationToken cancellationToken)
+   --- End of inner exception stack trace ---
+   at MongoDB.Driver.Core.Connections.BinaryConnection.OpenHelper(CancellationToken cancellationToken)
+   at MongoDB.Driver.Core.Connections.BinaryConnection.Open(CancellationToken cancellationToken)
+   at MongoDB.Driver.Core.Servers.ServerMonitor.InitializeConnection(CancellationToken cancellationToken)
+   at MongoDB.Driver.Core.Servers.ServerMonitor.Heartbeat(CancellationToken cancellationToken)", LastHeartbeatTimestamp: "2022-11-11T08:08:19.9666659Z", LastUpdateTimestamp: "2022-11-11T08:08:19.9666666Z" }] }.
+   at MongoDB.Driver.Core.Clusters.Cluster.ThrowTimeoutException(IServerSelector selector, ClusterDescription description)
+   at MongoDB.Driver.Core.Clusters.Cluster.WaitForDescriptionChangedHelper.HandleCompletedTask(Task completedTask)
+   at MongoDB.Driver.Core.Clusters.Cluster.WaitForDescriptionChanged(IServerSelector selector, ClusterDescription description, Task descriptionChangedTask, TimeSpan timeout, CancellationToken cancellationToken)
+   at MongoDB.Driver.Core.Clusters.Cluster.SelectServer(IServerSelector selector, CancellationToken cancellationToken)
+   at MongoDB.Driver.MongoClient.AreSessionsSupportedAfterServerSelection(CancellationToken cancellationToken)
+   at MongoDB.Driver.MongoClient.AreSessionsSupported(CancellationToken cancellationToken)
+   at MongoDB.Driver.MongoClient.StartImplicitSession(CancellationToken cancellationToken)
+   at MongoDB.Driver.OperationExecutor.StartImplicitSession(CancellationToken cancellationToken)
+   at MongoDB.Driver.MongoCollectionImpl`1.UsingImplicitSession[TResult](Func`2 func, CancellationToken cancellationToken)
+   at MongoDB.Driver.MongoCollectionImpl`1.FindSync[TProjection](FilterDefinition`1 filter, FindOptions`2 options, CancellationToken cancellationToken)
+   at MongoDB.Driver.FindFluent`2.ToCursor(CancellationToken cancellationToken)
+   at MongoDB.Driver.IAsyncCursorSourceExtensions.ToList[TDocument](IAsyncCursorSource`1 source, CancellationToken cancellationToken)
+   at Models.MongoDB.DAO.MongoDbDao.<>c__DisplayClass5_0`1.<SelectAllAsync>b__0() in D:\WorkSpace\Menieres\Models\MongoDB\DAO\MongoDbDao.cs:line 50
+   at System.Threading.Tasks.Task.InnerInvoke()
+   at System.Threading.Tasks.Task.<>c.<.cctor>b__272_0(Object obj)
+   at System.Threading.ExecutionContext.RunFromThreadPoolDispatchLoop(Thread threadPoolThread, ExecutionContext executionContext, ContextCallback callback, Object state)
+--- End of stack trace from previous location ---
+   at System.Threading.ExecutionContext.RunFromThreadPoolDispatchLoop(Thread threadPoolThread, ExecutionContext executionContext, ContextCallback callback, Object state)
+   at System.Threading.Tasks.Task.ExecuteWithThreadLocal(Task& currentTaskSlot, Thread threadPoolThread)
+--- End of stack trace from previous location ---
+   at Models.MongoDB.DAO.MongoDbDao.SelectAllAsync[T](String DocumentName) in D:\WorkSpace\Menieres\Models\MongoDB\DAO\MongoDbDao.cs:line 48
+   at Services.WordService.FindStatisticList() in D:\WorkSpace\Menieres\Services\Services\WordService.cs:line 105
+   at Meniere.Controllers.StatisticalController.GetStatisticModel() in D:\WorkSpace\Menieres\Meniere\Controllers\StatisticalController.cs:line 61
+时间:2022-11-11 16:10:01,097 内容: 获取统计模型
+System.TimeoutException: A timeout occurred after 30000ms selecting a server using CompositeServerSelector{ Selectors = MongoDB.Driver.MongoClient+AreSessionsSupportedServerSelector, LatencyLimitingServerSelector{ AllowedLatencyRange = 00:00:00.0150000 }, OperationsCountServerSelector }. Client view of cluster state is { ClusterId : "1", Type : "Unknown", State : "Disconnected", Servers : [{ ServerId: "{ ClusterId : 1, EndPoint : "127.0.0.1:27017" }", EndPoint: "127.0.0.1:27017", ReasonChanged: "Heartbeat", State: "Disconnected", ServerVersion: , TopologyVersion: , Type: "Unknown", HeartbeatException: "MongoDB.Driver.MongoConnectionException: An exception occurred while opening a connection to the server.
+ ---> System.Net.Internals.SocketExceptionFactory+ExtendedSocketException (10061): 由于目标计算机积极拒绝，无法连接。 127.0.0.1:27017
+   at System.Net.Sockets.Socket.DoConnect(EndPoint endPointSnapshot, SocketAddress socketAddress)
+   at System.Net.Sockets.Socket.Connect(EndPoint remoteEP)
+   at MongoDB.Driver.Core.Connections.TcpStreamFactory.Connect(Socket socket, EndPoint endPoint, CancellationToken cancellationToken)
+   at MongoDB.Driver.Core.Connections.TcpStreamFactory.CreateStream(EndPoint endPoint, CancellationToken cancellationToken)
+   at MongoDB.Driver.Core.Connections.BinaryConnection.OpenHelper(CancellationToken cancellationToken)
+   --- End of inner exception stack trace ---
+   at MongoDB.Driver.Core.Connections.BinaryConnection.OpenHelper(CancellationToken cancellationToken)
+   at MongoDB.Driver.Core.Connections.BinaryConnection.Open(CancellationToken cancellationToken)
+   at MongoDB.Driver.Core.Servers.ServerMonitor.InitializeConnection(CancellationToken cancellationToken)
+   at MongoDB.Driver.Core.Servers.ServerMonitor.Heartbeat(CancellationToken cancellationToken)", LastHeartbeatTimestamp: "2022-11-11T08:10:00.0196825Z", LastUpdateTimestamp: "2022-11-11T08:10:00.0196896Z" }] }.
+   at MongoDB.Driver.Core.Clusters.Cluster.ThrowTimeoutException(IServerSelector selector, ClusterDescription description)
+   at MongoDB.Driver.Core.Clusters.Cluster.WaitForDescriptionChangedHelper.HandleCompletedTask(Task completedTask)
+   at MongoDB.Driver.Core.Clusters.Cluster.WaitForDescriptionChanged(IServerSelector selector, ClusterDescription description, Task descriptionChangedTask, TimeSpan timeout, CancellationToken cancellationToken)
+   at MongoDB.Driver.Core.Clusters.Cluster.SelectServer(IServerSelector selector, CancellationToken cancellationToken)
+   at MongoDB.Driver.MongoClient.AreSessionsSupportedAfterServerSelection(CancellationToken cancellationToken)
+   at MongoDB.Driver.MongoClient.AreSessionsSupported(CancellationToken cancellationToken)
+   at MongoDB.Driver.MongoClient.StartImplicitSession(CancellationToken cancellationToken)
+   at MongoDB.Driver.OperationExecutor.StartImplicitSession(CancellationToken cancellationToken)
+   at MongoDB.Driver.MongoCollectionImpl`1.UsingImplicitSession[TResult](Func`2 func, CancellationToken cancellationToken)
+   at MongoDB.Driver.MongoCollectionImpl`1.FindSync[TProjection](FilterDefinition`1 filter, FindOptions`2 options, CancellationToken cancellationToken)
+   at MongoDB.Driver.FindFluent`2.ToCursor(CancellationToken cancellationToken)
+   at MongoDB.Driver.IAsyncCursorSourceExtensions.ToList[TDocument](IAsyncCursorSource`1 source, CancellationToken cancellationToken)
+   at Models.MongoDB.DAO.MongoDbDao.<>c__DisplayClass5_0`1.<SelectAllAsync>b__0() in D:\WorkSpace\Menieres\Models\MongoDB\DAO\MongoDbDao.cs:line 50
+   at System.Threading.Tasks.Task.InnerInvoke()
+   at System.Threading.Tasks.Task.<>c.<.cctor>b__272_0(Object obj)
+   at System.Threading.ExecutionContext.RunFromThreadPoolDispatchLoop(Thread threadPoolThread, ExecutionContext executionContext, ContextCallback callback, Object state)
+--- End of stack trace from previous location ---
+   at System.Threading.ExecutionContext.RunFromThreadPoolDispatchLoop(Thread threadPoolThread, ExecutionContext executionContext, ContextCallback callback, Object state)
+   at System.Threading.Tasks.Task.ExecuteWithThreadLocal(Task& currentTaskSlot, Thread threadPoolThread)
+--- End of stack trace from previous location ---
+   at Models.MongoDB.DAO.MongoDbDao.SelectAllAsync[T](String DocumentName) in D:\WorkSpace\Menieres\Models\MongoDB\DAO\MongoDbDao.cs:line 48
+   at Services.WordService.FindStatisticList() in D:\WorkSpace\Menieres\Services\Services\WordService.cs:line 105
+   at Meniere.Controllers.StatisticalController.GetStatisticModel() in D:\WorkSpace\Menieres\Meniere\Controllers\StatisticalController.cs:line 58
+时间:2022-11-11 16:10:13,593 内容: 获取统计模型
+System.TimeoutException: A timeout occurred after 30000ms selecting a server using CompositeServerSelector{ Selectors = MongoDB.Driver.MongoClient+AreSessionsSupportedServerSelector, LatencyLimitingServerSelector{ AllowedLatencyRange = 00:00:00.0150000 }, OperationsCountServerSelector }. Client view of cluster state is { ClusterId : "1", Type : "Unknown", State : "Disconnected", Servers : [{ ServerId: "{ ClusterId : 1, EndPoint : "127.0.0.1:27017" }", EndPoint: "127.0.0.1:27017", ReasonChanged: "Heartbeat", State: "Disconnected", ServerVersion: , TopologyVersion: , Type: "Unknown", HeartbeatException: "MongoDB.Driver.MongoConnectionException: An exception occurred while opening a connection to the server.
+ ---> System.Net.Internals.SocketExceptionFactory+ExtendedSocketException (10061): 由于目标计算机积极拒绝，无法连接。 127.0.0.1:27017
+   at System.Net.Sockets.Socket.DoConnect(EndPoint endPointSnapshot, SocketAddress socketAddress)
+   at System.Net.Sockets.Socket.Connect(EndPoint remoteEP)
+   at MongoDB.Driver.Core.Connections.TcpStreamFactory.Connect(Socket socket, EndPoint endPoint, CancellationToken cancellationToken)
+   at MongoDB.Driver.Core.Connections.TcpStreamFactory.CreateStream(EndPoint endPoint, CancellationToken cancellationToken)
+   at MongoDB.Driver.Core.Connections.BinaryConnection.OpenHelper(CancellationToken cancellationToken)
+   --- End of inner exception stack trace ---
+   at MongoDB.Driver.Core.Connections.BinaryConnection.OpenHelper(CancellationToken cancellationToken)
+   at MongoDB.Driver.Core.Connections.BinaryConnection.Open(CancellationToken cancellationToken)
+   at MongoDB.Driver.Core.Servers.ServerMonitor.InitializeConnection(CancellationToken cancellationToken)
+   at MongoDB.Driver.Core.Servers.ServerMonitor.Heartbeat(CancellationToken cancellationToken)", LastHeartbeatTimestamp: "2022-11-11T08:10:13.0473084Z", LastUpdateTimestamp: "2022-11-11T08:10:13.0473088Z" }] }.
+   at MongoDB.Driver.Core.Clusters.Cluster.ThrowTimeoutException(IServerSelector selector, ClusterDescription description)
+   at MongoDB.Driver.Core.Clusters.Cluster.WaitForDescriptionChangedHelper.HandleCompletedTask(Task completedTask)
+   at MongoDB.Driver.Core.Clusters.Cluster.WaitForDescriptionChanged(IServerSelector selector, ClusterDescription description, Task descriptionChangedTask, TimeSpan timeout, CancellationToken cancellationToken)
+   at MongoDB.Driver.Core.Clusters.Cluster.SelectServer(IServerSelector selector, CancellationToken cancellationToken)
+   at MongoDB.Driver.MongoClient.AreSessionsSupportedAfterServerSelection(CancellationToken cancellationToken)
+   at MongoDB.Driver.MongoClient.AreSessionsSupported(CancellationToken cancellationToken)
+   at MongoDB.Driver.MongoClient.StartImplicitSession(CancellationToken cancellationToken)
+   at MongoDB.Driver.OperationExecutor.StartImplicitSession(CancellationToken cancellationToken)
+   at MongoDB.Driver.MongoCollectionImpl`1.UsingImplicitSession[TResult](Func`2 func, CancellationToken cancellationToken)
+   at MongoDB.Driver.MongoCollectionImpl`1.FindSync[TProjection](FilterDefinition`1 filter, FindOptions`2 options, CancellationToken cancellationToken)
+   at MongoDB.Driver.FindFluent`2.ToCursor(CancellationToken cancellationToken)
+   at MongoDB.Driver.IAsyncCursorSourceExtensions.ToList[TDocument](IAsyncCursorSource`1 source, CancellationToken cancellationToken)
+   at Models.MongoDB.DAO.MongoDbDao.<>c__DisplayClass5_0`1.<SelectAllAsync>b__0() in D:\WorkSpace\Menieres\Models\MongoDB\DAO\MongoDbDao.cs:line 50
+   at System.Threading.Tasks.Task.InnerInvoke()
+   at System.Threading.Tasks.Task.<>c.<.cctor>b__272_0(Object obj)
+   at System.Threading.ExecutionContext.RunFromThreadPoolDispatchLoop(Thread threadPoolThread, ExecutionContext executionContext, ContextCallback callback, Object state)
+--- End of stack trace from previous location ---
+   at System.Threading.Tasks.Task.ExecuteWithThreadLocal(Task& currentTaskSlot, Thread threadPoolThread)
+--- End of stack trace from previous location ---
+   at Models.MongoDB.DAO.MongoDbDao.SelectAllAsync[T](String DocumentName) in D:\WorkSpace\Menieres\Models\MongoDB\DAO\MongoDbDao.cs:line 48
+   at Services.WordService.FindStatisticList() in D:\WorkSpace\Menieres\Services\Services\WordService.cs:line 105
+   at Meniere.Controllers.StatisticalController.GetStatisticModel() in D:\WorkSpace\Menieres\Meniere\Controllers\StatisticalController.cs:line 58
+时间:2022-11-11 16:10:15,572 内容: 获取统计模型
+System.FormatException: Element 'TongueInfo' does not match any field or property of class Models.MongoDB.Model.StatisticModel.
+   at MongoDB.Bson.Serialization.BsonClassMapSerializer`1.DeserializeClass(BsonDeserializationContext context)
+   at MongoDB.Bson.Serialization.BsonClassMapSerializer`1.Deserialize(BsonDeserializationContext context, BsonDeserializationArgs args)
+   at MongoDB.Bson.Serialization.IBsonSerializerExtensions.Deserialize[TValue](IBsonSerializer`1 serializer, BsonDeserializationContext context)
+   at MongoDB.Bson.Serialization.BsonSerializer.Deserialize[TNominalType](IBsonReader bsonReader, Action`1 configurator)
+   at MongoDB.Bson.Serialization.BsonSerializer.Deserialize[TNominalType](BsonDocument document, Action`1 configurator)
+   at Models.MongoDB.DAO.MongoDbDao.<>c__DisplayClass5_0`1.<SelectAllAsync>b__1(BsonDocument x) in D:\WorkSpace\Menieres\Models\MongoDB\DAO\MongoDbDao.cs:line 51
+   at System.Collections.Generic.List`1.ForEach(Action`1 action)
+   at Models.MongoDB.DAO.MongoDbDao.<>c__DisplayClass5_0`1.<SelectAllAsync>b__0() in D:\WorkSpace\Menieres\Models\MongoDB\DAO\MongoDbDao.cs:line 51
+   at System.Threading.Tasks.Task.InnerInvoke()
+   at System.Threading.Tasks.Task.<>c.<.cctor>b__272_0(Object obj)
+   at System.Threading.ExecutionContext.RunFromThreadPoolDispatchLoop(Thread threadPoolThread, ExecutionContext executionContext, ContextCallback callback, Object state)
+--- End of stack trace from previous location ---
+   at System.Threading.Tasks.Task.ExecuteWithThreadLocal(Task& currentTaskSlot, Thread threadPoolThread)
+--- End of stack trace from previous location ---
+   at Models.MongoDB.DAO.MongoDbDao.SelectAllAsync[T](String DocumentName) in D:\WorkSpace\Menieres\Models\MongoDB\DAO\MongoDbDao.cs:line 48
+   at Services.WordService.FindStatisticList() in D:\WorkSpace\Menieres\Services\Services\WordService.cs:line 105
+   at Meniere.Controllers.StatisticalController.GetStatisticModel() in D:\WorkSpace\Menieres\Meniere\Controllers\StatisticalController.cs:line 58
+时间:2022-11-11 16:10:18,307 内容: 获取统计模型
+System.FormatException: Element 'TongueInfo' does not match any field or property of class Models.MongoDB.Model.StatisticModel.
+   at MongoDB.Bson.Serialization.BsonClassMapSerializer`1.DeserializeClass(BsonDeserializationContext context)
+   at MongoDB.Bson.Serialization.BsonClassMapSerializer`1.Deserialize(BsonDeserializationContext context, BsonDeserializationArgs args)
+   at MongoDB.Bson.Serialization.IBsonSerializerExtensions.Deserialize[TValue](IBsonSerializer`1 serializer, BsonDeserializationContext context)
+   at MongoDB.Bson.Serialization.BsonSerializer.Deserialize[TNominalType](IBsonReader bsonReader, Action`1 configurator)
+   at MongoDB.Bson.Serialization.BsonSerializer.Deserialize[TNominalType](BsonDocument document, Action`1 configurator)
+   at Models.MongoDB.DAO.MongoDbDao.<>c__DisplayClass5_0`1.<SelectAllAsync>b__1(BsonDocument x) in D:\WorkSpace\Menieres\Models\MongoDB\DAO\MongoDbDao.cs:line 51
+   at System.Collections.Generic.List`1.ForEach(Action`1 action)
+   at Models.MongoDB.DAO.MongoDbDao.<>c__DisplayClass5_0`1.<SelectAllAsync>b__0() in D:\WorkSpace\Menieres\Models\MongoDB\DAO\MongoDbDao.cs:line 51
+   at System.Threading.Tasks.Task.InnerInvoke()
+   at System.Threading.ExecutionContext.RunFromThreadPoolDispatchLoop(Thread threadPoolThread, ExecutionContext executionContext, ContextCallback callback, Object state)
+--- End of stack trace from previous location ---
+   at System.Threading.Tasks.Task.ExecuteWithThreadLocal(Task& currentTaskSlot, Thread threadPoolThread)
+--- End of stack trace from previous location ---
+   at Models.MongoDB.DAO.MongoDbDao.SelectAllAsync[T](String DocumentName) in D:\WorkSpace\Menieres\Models\MongoDB\DAO\MongoDbDao.cs:line 48
+   at Services.WordService.FindStatisticList() in D:\WorkSpace\Menieres\Services\Services\WordService.cs:line 105
+   at Meniere.Controllers.StatisticalController.GetStatisticModel() in D:\WorkSpace\Menieres\Meniere\Controllers\StatisticalController.cs:line 58
+时间:2022-11-11 16:10:29,333 内容: 获取统计模型
+System.FormatException: Element 'TongueInfo' does not match any field or property of class Models.MongoDB.Model.StatisticModel.
+   at MongoDB.Bson.Serialization.BsonClassMapSerializer`1.DeserializeClass(BsonDeserializationContext context)
+   at MongoDB.Bson.Serialization.BsonClassMapSerializer`1.Deserialize(BsonDeserializationContext context, BsonDeserializationArgs args)
+   at MongoDB.Bson.Serialization.IBsonSerializerExtensions.Deserialize[TValue](IBsonSerializer`1 serializer, BsonDeserializationContext context)
+   at MongoDB.Bson.Serialization.BsonSerializer.Deserialize[TNominalType](IBsonReader bsonReader, Action`1 configurator)
+   at MongoDB.Bson.Serialization.BsonSerializer.Deserialize[TNominalType](BsonDocument document, Action`1 configurator)
+   at Models.MongoDB.DAO.MongoDbDao.<>c__DisplayClass5_0`1.<SelectAllAsync>b__1(BsonDocument x) in D:\WorkSpace\Menieres\Models\MongoDB\DAO\MongoDbDao.cs:line 51
+   at System.Collections.Generic.List`1.ForEach(Action`1 action)
+   at Models.MongoDB.DAO.MongoDbDao.<>c__DisplayClass5_0`1.<SelectAllAsync>b__0() in D:\WorkSpace\Menieres\Models\MongoDB\DAO\MongoDbDao.cs:line 51
+   at System.Threading.Tasks.Task.InnerInvoke()
+   at System.Threading.ExecutionContext.RunFromThreadPoolDispatchLoop(Thread threadPoolThread, ExecutionContext executionContext, ContextCallback callback, Object state)
+--- End of stack trace from previous location ---
+   at System.Threading.Tasks.Task.ExecuteWithThreadLocal(Task& currentTaskSlot, Thread threadPoolThread)
+--- End of stack trace from previous location ---
+   at Models.MongoDB.DAO.MongoDbDao.SelectAllAsync[T](String DocumentName) in D:\WorkSpace\Menieres\Models\MongoDB\DAO\MongoDbDao.cs:line 48
+   at Services.WordService.FindStatisticList() in D:\WorkSpace\Menieres\Services\Services\WordService.cs:line 105
+   at Meniere.Controllers.StatisticalController.GetStatisticModel() in D:\WorkSpace\Menieres\Meniere\Controllers\StatisticalController.cs:line 58
+时间:2022-11-11 16:11:12,299 内容: 获取统计模型
+System.FormatException: Element 'TongueInfo' does not match any field or property of class Models.MongoDB.Model.StatisticModel.
+   at MongoDB.Bson.Serialization.BsonClassMapSerializer`1.DeserializeClass(BsonDeserializationContext context)
+   at MongoDB.Bson.Serialization.BsonClassMapSerializer`1.Deserialize(BsonDeserializationContext context, BsonDeserializationArgs args)
+   at MongoDB.Bson.Serialization.IBsonSerializerExtensions.Deserialize[TValue](IBsonSerializer`1 serializer, BsonDeserializationContext context)
+   at MongoDB.Bson.Serialization.BsonSerializer.Deserialize[TNominalType](IBsonReader bsonReader, Action`1 configurator)
+   at MongoDB.Bson.Serialization.BsonSerializer.Deserialize[TNominalType](BsonDocument document, Action`1 configurator)
+   at Models.MongoDB.DAO.MongoDbDao.<>c__DisplayClass5_0`1.<SelectAllAsync>b__1(BsonDocument x) in D:\WorkSpace\Menieres\Models\MongoDB\DAO\MongoDbDao.cs:line 51
+   at System.Collections.Generic.List`1.ForEach(Action`1 action)
+   at Models.MongoDB.DAO.MongoDbDao.<>c__DisplayClass5_0`1.<SelectAllAsync>b__0() in D:\WorkSpace\Menieres\Models\MongoDB\DAO\MongoDbDao.cs:line 51
+   at System.Threading.Tasks.Task.InnerInvoke()
+   at System.Threading.ExecutionContext.RunFromThreadPoolDispatchLoop(Thread threadPoolThread, ExecutionContext executionContext, ContextCallback callback, Object state)
+--- End of stack trace from previous location ---
+   at System.Threading.Tasks.Task.ExecuteWithThreadLocal(Task& currentTaskSlot, Thread threadPoolThread)
+--- End of stack trace from previous location ---
+   at Models.MongoDB.DAO.MongoDbDao.SelectAllAsync[T](String DocumentName) in D:\WorkSpace\Menieres\Models\MongoDB\DAO\MongoDbDao.cs:line 48
+   at Services.WordService.FindStatisticList() in D:\WorkSpace\Menieres\Services\Services\WordService.cs:line 105
+   at Meniere.Controllers.StatisticalController.GetStatisticModel() in D:\WorkSpace\Menieres\Meniere\Controllers\StatisticalController.cs:line 58

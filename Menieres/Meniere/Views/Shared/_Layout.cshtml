@@ -1,0 +1,160 @@
+﻿@using Meniere.ViewModels
+@model ViewModel
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <link href="~/lib/bootstrap/dist/css/bootstrap.min.css" rel="stylesheet" />
+    <script src="~/lib/jquery/dist/jquery.min.js"></script>
+    <script src="~/lib/popper.min.js"></script>
+    <script src="~/lib/bootstrap/dist/js/bootstrap.min.js"></script>
+    <script src="~/filter/filter.js"></script>
+    <title>@ViewBag.Title</title>
+    <meta name="description" content="@ViewBag.desc" />
+    <meta name="keywords" content="@ViewBag.keyword" />
+    <style>
+        html, body {
+            height: 100%;
+            width: 100%;
+            margin: 0px;
+            padding: 0px
+        }
+
+        #PCBack_div {
+            width: 60%;
+            margin-left: auto;
+            margin-right: auto;
+            background-color: white;
+            position: relative;
+            /*padding: 3%;
+            border-radius: 15px*/
+        }
+
+        .Nav_Word {
+            color: black;
+            font-family: STXingkai;
+        }
+
+        .navbar1 {
+            position: relative;
+            display: -ms-flexbox;
+            display: flex;
+            align-items: center;
+        }
+
+        .nav-link1 {
+            display: block;
+            padding: 0.5rem 0.5rem;
+        }
+    </style>
+</head>
+<body style="text-align: center; background-color: ghostwhite;position: relative">
+    <div id="AlertDiv" class="alert alert-primary" role="alert" style="display:none;position:absolute;left:0px;top:0px;width:100%;z-index:5">...</div>
+    <div id="PCBack_div">
+        <div id="Div_title" style="margin:5px;">
+            <h2 style="text-align: left; font-family: STXingkai; float: left; z-index: -1;" title="Meniere">Meniere</h2>
+        </div>
+        <nav id="navbar" class="navbar1 bg-secondary" style="width:100%;">
+            <a class="nav-link1 Nav_Word" title="首页" href="/Home/Index?currentPage=1">首页</a>
+            <a class="nav-link1 Nav_Word" title="树洞"  href="/Complaint/Index?currentPage=1">树洞</a>
+            <a class="nav-link1 Nav_Word" title="统计" href="/Statistical/Index">统计</a>
+            <button id="Index_Creative" style="position:absolute;right:2vw" type="submit" class="btn btn-outline-dark" data-toggle="modal" data-target="#exampleModal">
+                发帖
+            </button>
+            <button id="Statistical_Join" style="position:absolute;right:2vw" type="submit" onclick="window.location.href = '/Statistical/JoinStatistic'" class="btn btn-outline-dark">
+                参与统计
+            </button>
+        </nav>
+        
+        <div id="ContentBody">
+            @RenderBody()
+        </div>
+        <div id="footer" style="width:100%;height:40px;text-align:center;">
+            <div title="统计耳源性眩晕">Meniere - 统计耳源性眩晕</div>
+        </div>
+    </div>
+    
+    <!-- Modal -->
+    <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="exampleModalLabel">建议</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div id="DislogContent" class="modal-body">
+                    <p style="text-align:left;font-family:YouYuan">发帖时尽量填写常用邮箱，如果你的帖子帮助到他人，他人可向站长申请获得你的邮箱</p>
+                    <p style="text-align:left;font-family:YouYuan;font-size:8px;color:gray">你的邮箱仅后台站长个人可查看,如有人需要你的邮箱，站长会先通过邮箱征得你的同意</p>
+                    <p style="text-align:left;font-family:YouYuan">出于对大家的信任，现在发帖暂不设审核，所以发帖时请友好交流，不要隐喻敏感地带</p>
+                    <p style="text-align:left;font-family:YouYuan">请大家积极分享经验，对抗病魔，一路不孤单</p>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-primary" onclick="window.location.href='/Home/Creative'" data-dismiss="modal">确定</button>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- button -->
+    <button type="button" id="PopModel" hidden data-toggle="modal" data-target="#exampleModal">
+        Launch demo modal
+    </button>
+    <script type="text/javascript">
+        var client = '';
+        $('[data-toggle="tooltip"]').tooltip()
+        try {
+            //判断是否是手机，是手机则旁边不留白
+            if (/Android|webOS|iPhone|iPod|BlackBerry/i.test(navigator.userAgent)) {
+                client = 'Phone';
+                //console.log('Phone');
+                $('#PCBack_div').css('width', '100%');
+                $('#footer').addClass('bg-secondary');
+                //添加样式
+                $('#navbar').addClass('navbar1');
+                $('#navbar a').addClass('nav-link1');
+                //删除样式
+                $('#navbar').removeClass('navbar');
+                $('#navbar').removeClass('navbar-expand');
+                $('#navbar a').removeClass('nav-link');
+            } else {
+                client = 'PC';
+                //console.log('PC');
+                $('#PCBack_div').css('width', '60%');
+                $('#footer').removeClass('bg-secondary');
+                $('#navbar').addClass('navbar-expand');
+                //添加样式
+                $('#navbar').addClass('navbar');
+                $('#navbar a').addClass('nav-link');
+                //删除样式
+                $('#navbar').removeClass('navbar1');
+                $('#navbar a').removeClass('nav-link1');
+            }
+        } catch (e) { }
+
+        $(function () {
+            //计算页脚高度  
+            //while ($('#ContentBody').height() + $('#footer').height() < document.documentElement.clientHeight) {
+            //    document.getElementById('ContentBody').innerHTML += "<br/>";
+            //}
+            ////背景充满页面
+            var pageHeight = document.body.scrollHeight;
+            if ($("#PCBack_div").height() < pageHeight) {
+                $("#PCBack_div").height(pageHeight)
+            }
+            //先隐藏，确认是相应页面再打开
+            $('#Index_Creative').hide();
+            $('#Statistical_Join').hide();
+
+            if (typeof ($('#indexPage')) != 'undefined' && $('#indexPage').val() == 1) {
+                $('#Index_Creative').show();
+            }
+            if (typeof ($('#StatisticPage')) != 'undefined' && $('#StatisticPage').val() == 1) {
+                $('#Statistical_Join').show();
+            }
+            
+        })
+    </script>
+</body>
+</html>

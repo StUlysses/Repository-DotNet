@@ -1,0 +1,120 @@
+﻿@using Meniere.ViewModels
+@using Models
+@model ViewModel
+@{
+    ViewData["Title"] = Model.Article.Title + "-审核";
+    ViewData["desc"] = "";
+    ViewData["keyword"] = "";
+    Layout = "~/Views/Shared/NovelLayout.cshtml";
+}
+<style>
+    .acricle_td {
+        text-align: left;
+    }
+
+    .author {
+        width: 70%;
+        float: left;
+        color: gray;
+        font-size: small
+    }
+
+    .date {
+        width: 30%;
+        float: left;
+        text-align: right;
+        color: gray;
+        font-size: small
+    }
+
+    .Nav_Word {
+        color: black;
+        font-family: STXingkai;
+    }
+
+    .navbar1 {
+        position: relative;
+        display: -ms-flexbox;
+        display: flex;
+        align-items: center;
+    }
+
+    .nav-link1 {
+        display: block;
+        padding: 0.5rem 0.5rem;
+    }
+</style>
+<nav id="navbar" class="navbar1 badge-pill" style="width:100%;">
+    <a class="nav-link1 Nav_Word" href="/Review/Index?currentPage=1&result=0&type=1">文章</a>
+    <a class="nav-link1 Nav_Word" href="/Review/Index?currentPage=1&result=0&type=2">游戏</a>
+</nav>
+<div class="container" style="width:100%;height:92%">
+    <div class="card" id="info_Article" style="width: 100%;">
+        <div class="card-body">
+            <h5 class="card-title">@(Model.Article.Title)</h5>
+            <h6 class="card-subtitle mb-2 text-muted text-right">@(Model.Article.Date.ToString("yyyy-MM-dd HH:mm:ss"))--@(Model.Article.Author)</h6>
+
+        </div>
+    </div>
+    <br />
+    <div class="input-group mb-3">
+        <div class="input-group-prepend">
+            <span class="input-group-text">作者</span>
+        </div>
+        <input type="text" id="reviewArti_author" class="form-control" value="@(Model.User)" max="50">
+    </div>
+    <div class="input-group mb-3">
+        <div class="input-group-prepend">
+            <span class="input-group-text">邮箱</span>
+        </div>
+        <input type="text" id="reviewArti_email" class="form-control" value="@(Model.Email)" maxlength="100">
+    </div>
+
+    <div class="input-group mb-3">
+        @if (Model.Article.Result == 0)
+        {
+            <button type="button" style="margin:1vw" onclick="ReviewAction(1)" class="btn btn-outline-success">通过</button>
+            <button type="button" style="margin:1vw" onclick="ReviewAction(2)" class="btn btn-outline-secondary">拒绝</button>
+        }
+        @if (Model.Article.Result == 1)
+        {
+            <button type="button" style="margin:1vw" onclick="ReviewAction(-1)" class="btn btn-outline-danger">删除</button>
+        }
+        @if (Model.Article.Result == -1)
+        {
+            <button type="button" style="margin:1vw" onclick="ReviewAction(1)" class="btn btn-outline-warning">恢复</button>
+        }
+    </div>
+</div>
+<script src="~/filter/filter.js"></script>
+<script>
+    $(function () {
+        //将正文的换行符替换
+        let con = ContentReplace('@(Model.Article.Content)');
+        document.getElementById('info_Article').innerHTML += '<div class="card-text text-left" style="margin:5px">' + con + '</div>';
+        //对评论进行替换
+        let list = $('#info_collapseOne .complaint_detail');
+        for (let i = 0; i < list.length; i++) {
+            let temp = ContentReplace(list[i].innerHTML);
+            list[i].innerHTML = temp;
+        }
+
+    });
+    ///审核操作 mode 0：未通过 1：已通过 -1：已删除
+    function ReviewAction(mode) {
+        let author = $('#reviewArti_author').val();
+        if (author == '') {
+            return tooltipTool('reviewArti_author', '请留下大名');
+        }
+        let email = $('#reviewArti_email').val();
+        if (email == '') {
+            return tooltipTool('reviewArti_email', '请填写邮箱');
+        }
+        let regEmail = /^([a-zA-Z0-9_-])+@@([a-zA-Z0-9_-])+.([a-zA-Z0-9_-])+/;
+        if (!regEmail.test(email)) {
+            return tooltipTool('reviewArti_email', '请检查邮箱格式');
+        }
+        window.location.href = '/Review/ReviewAct?type=1&mode=' + mode + '&guid=@Model.Article.Guid&author=' +
+            author + '&email=' + email;
+    }
+</script>

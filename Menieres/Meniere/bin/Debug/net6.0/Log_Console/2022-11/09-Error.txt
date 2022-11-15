@@ -1,0 +1,31 @@
+时间:2022-11-09 13:39:55,490 内容: 保存文章
+System.NotImplementedException: The method or operation is not implemented.
+   at Services.WordService.Services.IWordService.SaveArticle(Article article) in D:\WorkSpace\Menieres\Services\Services\WordService.cs:line 121
+   at Meniere.Controllers.HomeController.SaveArticle(Article article) in D:\WorkSpace\Menieres\Meniere\Controllers\HomeController.cs:line 91
+时间:2022-11-09 16:35:00,769 内容: 保存文章图片
+System.IO.DirectoryNotFoundException: Could not find a part of the path 'D:\Upload\Image\2022\11\1e4544f3-3d5b-4cf6-a3ab-e9c9ac7bb710.png'.
+   at Microsoft.Win32.SafeHandles.SafeFileHandle.CreateFile(String fullPath, FileMode mode, FileAccess access, FileShare share, FileOptions options)
+   at Microsoft.Win32.SafeHandles.SafeFileHandle.Open(String fullPath, FileMode mode, FileAccess access, FileShare share, FileOptions options, Int64 preallocationSize)
+   at System.IO.Strategies.OSFileStreamStrategy..ctor(String path, FileMode mode, FileAccess access, FileShare share, FileOptions options, Int64 preallocationSize)
+   at System.IO.Strategies.FileStreamHelpers.ChooseStrategyCore(String path, FileMode mode, FileAccess access, FileShare share, FileOptions options, Int64 preallocationSize)
+   at System.IO.Strategies.FileStreamHelpers.ChooseStrategy(FileStream fileStream, String path, FileMode mode, FileAccess access, FileShare share, Int32 bufferSize, FileOptions options, Int64 preallocationSize)
+   at System.IO.FileStream..ctor(String path, FileMode mode)
+   at Meniere.Controllers.HomeController.SaveArticleImgAsync(String id) in D:\WorkSpace\Menieres\Meniere\Controllers\HomeController.cs:line 134
+时间:2022-11-09 16:38:24,428 内容: 保存文章图片
+System.IO.DirectoryNotFoundException: Could not find a part of the path 'D:\Upload\Image\2022\11\47bec292-270c-43a6-a68c-81807bc129a0.png'.
+   at Microsoft.Win32.SafeHandles.SafeFileHandle.CreateFile(String fullPath, FileMode mode, FileAccess access, FileShare share, FileOptions options)
+   at Microsoft.Win32.SafeHandles.SafeFileHandle.Open(String fullPath, FileMode mode, FileAccess access, FileShare share, FileOptions options, Int64 preallocationSize)
+   at System.IO.Strategies.OSFileStreamStrategy..ctor(String path, FileMode mode, FileAccess access, FileShare share, FileOptions options, Int64 preallocationSize)
+   at System.IO.Strategies.FileStreamHelpers.ChooseStrategyCore(String path, FileMode mode, FileAccess access, FileShare share, FileOptions options, Int64 preallocationSize)
+   at System.IO.Strategies.FileStreamHelpers.ChooseStrategy(FileStream fileStream, String path, FileMode mode, FileAccess access, FileShare share, Int32 bufferSize, FileOptions options, Int64 preallocationSize)
+   at System.IO.FileStream..ctor(String path, FileMode mode)
+   at Meniere.Controllers.HomeController.SaveArticleImgAsync(String id) in D:\WorkSpace\Menieres\Meniere\Controllers\HomeController.cs:line 134
+时间:2022-11-09 16:38:24,437 内容: Connection ID "18230571353335922753", Request ID "80000043-000e-fd00-b63f-84710c7967bb": An unhandled exception was thrown by the application.
+System.OperationCanceledException: The operation was canceled.
+   at System.Threading.CancellationToken.ThrowOperationCanceledException()
+   at Microsoft.AspNetCore.Server.IIS.Core.HttpResponseStream.ValidateState(CancellationToken cancellationToken)
+   at Microsoft.AspNetCore.Server.IIS.Core.HttpResponseStream.WriteAsync(ReadOnlyMemory`1 source, CancellationToken cancellationToken)
+   at Microsoft.AspNetCore.Server.IIS.Core.WrappingStream.WriteAsync(ReadOnlyMemory`1 source, CancellationToken cancellationToken)
+   at Microsoft.AspNetCore.Watch.BrowserRefresh.BrowserScriptMiddleware.InvokeAsync(HttpContext context)
+   at Microsoft.AspNetCore.Builder.Extensions.MapMiddleware.InvokeCore(HttpContext context, String matchedPath, String remainingPath)
+   at Microsoft.AspNetCore.Server.IIS.Core.IISHttpContextOfT`1.ProcessRequestAsync()

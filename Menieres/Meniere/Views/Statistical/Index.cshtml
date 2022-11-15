@@ -1,0 +1,184 @@
+﻿@using Meniere.ViewModels
+@using Models
+@model ViewModel
+@{
+    ViewData["Title"] = "统计-Meniere";
+    ViewData["desc"] = "Meniere-梅尼埃网：耳源性眩晕统计网站";
+    ViewData["keyword"] = "Meniere,梅尼埃,眩晕,头晕,美尼尔";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+<script src="~/lib/echarts.min.js"></script>
+<style>
+    .ByPC{
+        width:50%;
+        height:30px;
+        float:left
+    }
+    .ByPhone{
+        width:100%;
+        height:30px;
+    }
+</style>
+<div class="container">
+    <div style="width:100%">
+        @*控制左上角按钮*@
+        <input type="hidden" id="StatisticPage" value="1"/>
+        <br/>
+       <div class="dropdown" style="width:70%;float:left;text-align:left">
+          <a class="btn btn-primary dropdown-toggle" href="#" role="button" id="dropdownMenuLink" data-toggle="dropdown" aria-expanded="false">
+            统计范围
+          </a>
+          <div class="dropdown-menu" aria-labelledby="dropdownMenuLink">
+            <a class="dropdown-item" href="javascript:GetStatisticModel(0)">基本情况</a>
+            <a class="dropdown-item" href="javascript:GetStatisticModel(1)">饮食情况</a>
+            <a class="dropdown-item" href="javascript:GetStatisticModel(2)">病史情况</a>
+            <a class="dropdown-item" href="javascript:GetStatisticModel(3)">发作情况</a>
+            <a class="dropdown-item" href="javascript:GetStatisticModel(4)">平时异常情况</a>
+          </div>
+       </div>
+       <br/>
+       <br/>
+       <br/>
+       <div id="charts" style="width:100%;" >
+           <div id="charts00" class="ByPC"></div>
+           <div id="charts01" class="ByPC"></div>
+           <div id="charts02" class="ByPC"></div>
+           <div id="charts03" class="ByPC"></div>
+           <div id="charts04" class="ByPC"></div>
+           <div id="charts05" class="ByPC"></div>
+           <div id="charts06" class="ByPC"></div>
+           <div id="charts07" class="ByPC"></div>
+           <div id="charts08" class="ByPC"></div>
+           <div id="charts09" class="ByPC"></div>
+           <div style="clear:both"></div>
+       </div>
+    </div>
+    
+</div>
+<script>
+    //存放统计模型资源,避免重复获取
+    let models = "";
+    $(function(){
+        switch(client){
+            case 'PC':
+                $('#charts div').addClass('ByPC');
+                $('#charts div').removeClass('ByPhone');
+            break;
+            case 'Phone':
+                $('#charts div').addClass('ByPhone');
+                $('#charts div').removeClass('ByPC');
+            break;
+        }
+        
+    })
+    //异步获取统计模型
+    function GetStatisticModel(mode){
+        //使用懒加载
+        if(models == ""){
+            $.ajax({
+                url: '/Statistical/GetStatisticModel',
+                type: 'POST',
+                async: 'true',
+                success: function (data) {
+                    if (data.code == 200) {
+                        models = data.data;
+                        PieCategory(models,mode);
+                    }
+                }
+            });
+        }else{
+            PieCategory(models,mode);
+        }
+    }
+    //根据分类生成饼图
+    let Number = 0;
+    function PieCategory(data,type){
+        console.log(data);
+        Number = 0;
+        switch(type){
+            case 0:
+                CreatePie(data.morbidityAgeJson,'发病年龄');
+                CreatePie(data.genderJson,'性别');
+                CreatePie(data.ibmJson,'体重');
+            break;
+            case 1:
+                CreatePie(data.tasteJson,'口味');
+                CreatePie(data.smokingJson,'吸烟史');
+                CreatePie(data.wineJson,'饮酒史');
+                CreatePie(data.coffeeJson,'咖啡史');
+                CreatePie(data.teaJson,'饮茶史');
+                CreatePie(data.stayUpLateJson,'熬夜史');
+            break;
+            case 2:
+                CreatePie(data.illnessJson,'疾病史');
+                CreatePie(data.inheritanceJson,'遗传史');
+                CreatePie(data.vaccineJson,'疫苗接种异常');
+                CreatePie(data.headInjureJson,'头部外伤');
+            break;
+            case 3:
+                CreatePie(data.acuteMorbidityJson,'剧烈发作');
+                CreatePie(data.slightMorbidityJson,'轻微发作');
+                CreatePie(data.seasonMorbidityJson,'哪个季节发作频繁');
+                CreatePie(data.withTinnitusExacerbationJson,'发作伴耳鸣加重');
+                CreatePie(data.withColdSweatJson,'发作伴冷汗');
+                CreatePie(data.withBodyNumbJson,'发作伴肢体麻木');
+                CreatePie(data.withAnaeolbJson,'发作伴反胃');
+                CreatePie(data.withEarUpJson,'发作伴耳涨');
+                CreatePie(data.withEarFullnessJson,'发作伴耳闷');
+                CreatePie(data.withDiarrheaJson,'发作伴腹泻');
+            break;
+            case 4:
+                CreatePie(data.sleepDisordersJson,'睡眠障碍');
+                CreatePie(data.tinnitusExacerbationJson,'耳鸣');
+                CreatePie(data.earUpJson,'耳涨');
+                CreatePie(data.earFullnessJson,'耳闷');
+                CreatePie(data.hatetoshriekJson,'讨厌尖锐声音');
+                CreatePie(data.dazedJson,'头脑昏沉');
+            break;
+        }
+    }
+    //生成饼图
+    //data:数据 name:标题
+    function CreatePie(data,name){
+        let newId = 'charts0' + Number;
+        Number++;
+        let element = document.getElementById(newId);
+        element.style.height = '350px';
+        let myChart = echarts.init(element);
+        //window.onresize = function() {
+        //    myChart.resize();
+        //  };
+        myChart.setOption({
+          title: {
+            text: name,
+            left: 'center'
+          },
+          tooltip: {
+            trigger: 'item'
+          },
+          series: [
+            {
+              name: name,
+              type: 'pie',
+              radius: '50%',
+              data: data,
+              label: {
+                   //echarts饼图内部显示百分比设置
+                   show: true,
+                   position: "outside", //outside 外部显示  inside 内部显示
+                   formatter: `{b}-{d}%`,
+                   color: "#000000", //颜色
+                   fontSize: 12 //字体大小
+               },
+              emphasis: {
+                itemStyle: {
+                  shadowBlur: 10,
+                  shadowOffsetX: 0,
+                  shadowColor: 'rgba(0, 0, 0, 0.5)'
+                }
+              }
+            }
+          ]
+        });
+    }
+</script>

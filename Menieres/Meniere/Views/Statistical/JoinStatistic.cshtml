@@ -1,0 +1,406 @@
+﻿@using Meniere.ViewModels
+@using Models
+@model ViewModel
+@{
+    ViewData["Title"] = "统计-Meniere";
+    ViewData["desc"] = "Meniere-梅尼埃网：耳源性眩晕统计网站";
+    ViewData["keyword"] = "Meniere,梅尼埃,眩晕,头晕,美尼尔";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+<style>
+    .CheckBoxClass{
+        width:100%;
+        text-align:left
+    }
+</style>
+<div class="container-fluid">
+<h3><span class="badge badge-pill badge-primary">基本情况</span></h3>
+<form action="/Statistical/SaveStatistical">
+    <div class="input-group mb-3">
+        <div class="input-group-prepend">
+            <span class="input-group-text">发病年龄</span>
+        </div>
+        <select class="form-control" name="MorbidityAge" required>
+            <option selected disabled value=""></option>
+            <option value="0-20岁"> 0-20岁</option>
+            <option value="20-30岁"> 20-30岁</option>
+            <option value="30-40岁"> 30-40岁</option>
+            <option value="40-50岁"> 40-50岁</option>
+            <option value="50-60岁"> 50-60岁</option>
+            <option value="60-100岁"> 60-100岁</option>
+        </select>
+    </div>
+    <div class="input-group mb-3">
+        <div class="input-group-prepend">
+            <span class="input-group-text">性别</span>
+        </div>
+        <span class="form-control" style="text-align:left">
+            <label style="width:40%"><input type="radio" name="Gender" value="女" required/>女</label>
+            <label style="width:40%"><input type="radio" name="Gender" value="男" required/>男</label>
+        </span>
+    </div>
+    <div class="input-group mb-3">
+        <div class="input-group-prepend">
+            <span class="input-group-text">身高</span>
+        </div>
+        <input type="number" id="JS_height" class="form-control" onblur="IBMCalculating()" maxlength="3" required>
+        <div class="input-group-append">
+        <span class="input-group-text" id="basic-addon2">CM</span>
+        </div>
+    </div>
+    <div class="input-group mb-3">
+        <div class="input-group-prepend">
+            <span class="input-group-text">体重</span>
+        </div>
+        <input type="number" id="JS_wight" class="form-control" onblur="IBMCalculating()" maxlength="3" required>
+        <input type="hidden" id="JS_IBM" name="IBM"/>
+        <div class="input-group-append">
+        <span class="input-group-text" id="basic-addon2">KG</span>
+        </div>
+    </div>
+<h3><span class="badge badge-pill badge-primary">生活情况</span></h3>
+    <div class="input-group mb-3">
+        <div class="input-group-prepend">
+            <span class="input-group-text">饮食偏好</span>
+        </div>
+        <select class="form-control" name="Taste" required>
+            <option selected disabled value=""></option>
+            <option value="偏甜">偏甜</option>
+            <option value="偏咸">偏咸</option>
+            <option value="偏辣">偏辣</option>
+        </select>
+    </div>
+    <div class="input-group mb-3">
+        <div class="input-group-prepend">
+            <span class="input-group-text">吸烟史</span>
+        </div>
+        <select class="form-control" name="Smoking" required>
+            <option selected disabled value=""></option>
+            <option value="一日一包">一日一包</option>
+            <option value="三日一包">三日一包</option>
+            <option value="一周一包">一周一包</option>
+            <option value="一周以上一包">一周以上一包</option>
+            <option value="不吸烟">不吸烟</option>
+        </select>
+    </div>
+    <div class="input-group mb-3">
+        <div class="input-group-prepend">
+            <span class="input-group-text">饮酒史</span>
+        </div>
+        <select class="form-control" name="Wine" required>
+            <option selected disabled value=""></option>
+            <option value="经常">经常</option>
+            <option value="偶尔">偶尔</option>
+            <option value="从不">从不</option>
+        </select>
+    </div>
+    <div class="input-group mb-3">
+        <div class="input-group-prepend">
+            <span class="input-group-text">咖啡史</span>
+        </div>
+        <select class="form-control" name="Coffee" required>
+            <option selected disabled value=""></option>
+            <option value="经常">经常</option>
+            <option value="偶尔">偶尔</option>
+            <option value="从不">从不</option>
+        </select>
+    </div>
+    <div class="input-group mb-3">
+        <div class="input-group-prepend">
+            <span class="input-group-text">饮茶史</span>
+        </div>
+        <select class="form-control" name="Tea" required>
+            <option selected disabled value=""></option>
+            <option value="经常">经常</option>
+            <option value="偶尔">偶尔</option>
+            <option value="从不">从不</option>
+        </select>
+    </div>
+    <div class="input-group mb-3">
+        <div class="input-group-prepend">
+            <span class="input-group-text">熬夜史</span>
+        </div>
+        <select class="form-control" name="StayUpLate" required>
+            <option selected disabled value=""></option>
+            <option value="经常">经常</option>
+            <option value="偶尔">偶尔</option>
+            <option value="从不">从不</option>
+        </select>
+    </div>
+<h3><span class="badge badge-pill badge-primary">病史情况</span></h3>
+    <div class="input-group mb-3">
+        <div class="input-group-prepend">
+            <span class="input-group-text">疾病史</span>
+        </div>
+        <span class="form-control" style="height:230px">
+            <label class="CheckBoxClass"><input type="checkbox" name="Illness" value="高血压"/>高血压</label>
+            <label class="CheckBoxClass"><input type="checkbox" name="Illness" value="压血糖"/>压血糖</label>
+            <label class="CheckBoxClass"><input type="checkbox" name="Illness" value="糖尿病"/>糖尿病</label>
+            <label class="CheckBoxClass"><input type="checkbox" name="Illness" value="胃炎"/>胃炎</label>
+            <label class="CheckBoxClass"><input type="checkbox" name="Illness" value="鼻炎"/>鼻炎</label>
+            <label class="CheckBoxClass"><input type="checkbox" name="Illness" value="咽喉炎"/>咽喉炎</label>
+            <label class="CheckBoxClass"><input type="checkbox" name="Illness" value="颈椎病"/>颈椎病</label>
+        </span>
+    </div>
+    <div class="input-group mb-3">
+        <div class="input-group-prepend">
+            <span class="input-group-text">家族史</span>
+        </div>
+        <select class="form-control" name="Inheritance" required>
+            <option selected disabled value=""></option>
+            <option value="无">无</option>
+            <option value="有">有</option>
+        </select>
+        <div class="input-group-append">
+        <span class="input-group-text" id="basic-addon2">亲属眩晕情况</span>
+        </div>
+    </div>
+    <div class="input-group mb-3">
+        <div class="input-group-prepend">
+            <span class="input-group-text">头部外伤史</span>
+        </div>
+        <select class="form-control" name="HeadInjure" required>
+            <option selected disabled value=""></option>
+            <option value="无">无</option>
+            <option value="有">有</option>
+        </select>
+    </div>
+    <div class="input-group mb-3">
+        <div class="input-group-prepend">
+            <span class="input-group-text">疫苗接种不良反应</span>
+        </div>
+        <select class="form-control" name="Vaccine" required>
+            <option selected disabled value=""></option>
+            <option value="无">无</option>
+            <option value="有">有</option>
+        </select>
+    </div>
+<h3><span class="badge badge-pill badge-primary">发作情况</span></h3>
+    <div class="input-group mb-3">
+        <div class="input-group-prepend">
+            <span class="input-group-text">剧烈眩晕频率</span>
+        </div>
+        <select class="form-control" name="AcuteMorbidity" required>
+            <option selected disabled value=""></option>
+            <option value="数年一次">数年一次</option>
+            <option value="一年数次">一年数次</option>
+            <option value="一月数次">一月数次</option>
+            <option value="一周数次">一周数次</option>
+            <option value="一日数次">一日数次</option>
+        </select>
+    </div>
+    <div class="input-group mb-3">
+        <div class="input-group-prepend">
+            <span class="input-group-text">轻微眩晕频率</span>
+        </div>
+        <select class="form-control" name="SlightMorbidity" required>
+            <option selected disabled value=""></option>
+            <option value="经常">经常</option>
+            <option value="偶尔">偶尔</option>
+            <option value="从不">从不</option>
+        </select>
+    </div>
+    <div class="input-group mb-3">
+        <div class="input-group-prepend">
+            <span class="input-group-text">哪个时节发作较多</span>
+        </div>
+        <select class="form-control" name="SeasonMorbidity" required>
+            <option selected disabled value=""></option>
+            <option value="春">春</option>
+            <option value="夏">夏</option>
+            <option value="秋">秋</option>
+            <option value="冬">冬</option>
+            <option value="季节变换时">季节变换时</option>
+        </select>
+    </div>
+    <div class="input-group mb-3">
+        <div class="input-group-prepend">
+            <span class="input-group-text">发作伴耳鸣加重</span>
+        </div>
+        <select class="form-control" name="WithTinnitusExacerbation" required>
+            <option selected disabled value=""></option>
+            <option value="无">无</option>
+            <option value="有">有</option>
+        </select>
+    </div>
+    <div class="input-group mb-3">
+        <div class="input-group-prepend">
+            <span class="input-group-text">发作伴冷汗</span>
+        </div>
+        <select class="form-control" name="WithColdSweat" required>
+            <option selected disabled value=""></option>
+            <option value="无">无</option>
+            <option value="有">有</option>
+        </select>
+    </div>
+    <div class="input-group mb-3">
+        <div class="input-group-prepend">
+            <span class="input-group-text">发作伴肢体麻木</span>
+        </div>
+        <select class="form-control" name="WithBodyNumb" required>
+            <option selected disabled value=""></option>
+            <option value="无">无</option>
+            <option value="有">有</option>
+        </select>
+    </div>
+    <div class="input-group mb-3">
+        <div class="input-group-prepend">
+            <span class="input-group-text">发作伴反胃</span>
+        </div>
+        <select class="form-control" name="WithAnaeolb" required>
+            <option selected disabled value=""></option>
+            <option value="无">无</option>
+            <option value="有">有</option>
+        </select>
+    </div>
+    <div class="input-group mb-3">
+        <div class="input-group-prepend">
+            <span class="input-group-text">发作伴耳涨</span>
+        </div>
+        <select class="form-control" name="WithEarUp" required>
+            <option selected disabled value=""></option>
+            <option value="无">无</option>
+            <option value="有">有</option>
+        </select>
+    </div>
+    <div class="input-group mb-3">
+        <div class="input-group-prepend">
+            <span class="input-group-text">发作伴耳闷</span>
+        </div>
+        <select class="form-control" name="WithEarFullness" required>
+            <option selected disabled value=""></option>
+            <option value="无">无</option>
+            <option value="有">有</option>
+        </select>
+    </div>
+    <div class="input-group mb-3">
+        <div class="input-group-prepend">
+            <span class="input-group-text">发作伴腹泻</span>
+        </div>
+        <select class="form-control" name="WithDiarrhea" required>
+            <option selected disabled value=""></option>
+            <option value="无">无</option>
+            <option value="有">有</option>
+        </select>
+    </div>
+<h3><span class="badge badge-pill badge-primary">平时异常情况</span></h3>
+    <div class="input-group mb-3">
+        <div class="input-group-prepend">
+            <span class="input-group-text">耳鸣</span>
+        </div>
+        <select class="form-control" name="TinnitusExacerbation" required>
+            <option selected disabled value=""></option>
+            <option value="经常">经常</option>
+            <option value="偶尔">偶尔</option>
+            <option value="从不">从不</option>
+        </select>
+    </div>
+    <div class="input-group mb-3">
+        <div class="input-group-prepend">
+            <span class="input-group-text">耳涨</span>
+        </div>
+        <select class="form-control"name="EarUp" required>
+            <option selected disabled value=""></option>
+            <option value="经常">经常</option>
+            <option value="偶尔">偶尔</option>
+            <option value="从不">从不</option>
+        </select>
+    </div>
+    <div class="input-group mb-3">
+        <div class="input-group-prepend">
+            <span class="input-group-text">耳闷</span>
+        </div>
+        <select class="form-control" name="EarFullness" required>
+            <option selected disabled value=""></option>
+            <option value="经常">经常</option>
+            <option value="偶尔">偶尔</option>
+            <option value="从不">从不</option>
+        </select>
+    </div>
+    <div class="input-group mb-3">
+        <div class="input-group-prepend">
+            <span class="input-group-text">睡眠障碍</span>
+        </div>
+        <select class="form-control" name="SleepDisorders" required>
+            <option selected disabled value=""></option>
+            <option value="经常">经常</option>
+            <option value="偶尔">偶尔</option>
+            <option value="从不">从不</option>
+        </select>
+    </div>
+    <div class="input-group mb-3">
+        <div class="input-group-prepend">
+            <span class="input-group-text">畏尖锐声音</span>
+        </div>
+        <select class="form-control" name="Hatetoshriek" required>
+            <option selected disabled value=""></option>
+            <option value="经常">经常</option>
+            <option value="偶尔">偶尔</option>
+            <option value="从不">从不</option>
+        </select>
+    </div>
+    <div class="input-group mb-3">
+        <div class="input-group-prepend">
+            <span class="input-group-text">头脑昏沉</span>
+        </div>
+        <select class="form-control" name="Dazed" required>
+            <option selected disabled value=""></option>
+            <option value="经常">经常</option>
+            <option value="偶尔">偶尔</option>
+            <option value="从不">从不</option>
+        </select>
+    </div>
+<h3><span class="badge badge-pill badge-primary">缓解情况</span></h3>
+    <div class="input-group mb-3">
+        <div class="input-group-prepend">
+            <span class="input-group-text">目前是否缓解</span>
+        </div>
+        <select class="form-control" name="IsAnesis" required>
+            <option selected disabled value=""></option>
+            <option value="无">无</option>
+            <option value="有">有</option>
+        </select>
+    </div>
+    <div class="input-group mb-3">
+        <div class="input-group-prepend">
+            <span class="input-group-text">日常哪些行为能减缓发作</span>
+        </div>
+        <span class="form-control" style="height:130px">
+            <label class="CheckBoxClass"><input type="checkbox" name="AnesisAction" value="保暖"/>保暖</label>
+            <label class="CheckBoxClass"><input type="checkbox" name="AnesisAction" value="进食"/>进食</label>
+            <label class="CheckBoxClass"><input type="checkbox" name="AnesisAction" value="卧倒"/>卧倒</label>
+            <label class="CheckBoxClass"><input type="checkbox" name="AnesisAction" value="吃药"/>吃药</label>
+        </span>
+    </div>
+    <div class="input-group mb-3">
+        <div class="input-group-prepend">
+            <span class="input-group-text">尝试过哪些针对眩晕的治疗</span>
+        </div>
+        <input type="text" name="Therapy" class="form-control">
+        <div class="input-group-append">
+        </div>
+    </div>
+    <button  class="btn btn-outline-primary" type="submit">提交</button>
+</form>
+<script>
+    function IBMCalculating(){
+        let height = $('#JS_height').val();
+        let wight = $('#JS_wight').val();
+        if(wight != '' && height != ''){
+            let num = wight / (height * height / 10000);
+            if(num < 18.5){
+            $('#JS_IBM').val('偏轻');
+            }
+            else if(18.5 <= num < 24){
+            $('#JS_IBM').val('中等');
+            }
+            else if(24 <= num <28, 3){
+            $('#JS_IBM').val('偏重');
+            }
+            else if(28<=超重){
+            $('#JS_IBM').val('超重');
+            }
+        }
+    }
+</script>
+</div>

@@ -1,0 +1,15 @@
+D:\WorkSpace\Menieres\Services\bin\Debug\net6.0\Services.deps.json
+D:\WorkSpace\Menieres\Services\bin\Debug\net6.0\Services.dll
+D:\WorkSpace\Menieres\Services\bin\Debug\net6.0\ref\Services.dll
+D:\WorkSpace\Menieres\Services\bin\Debug\net6.0\Services.pdb
+D:\WorkSpace\Menieres\Services\bin\Debug\net6.0\Models.dll
+D:\WorkSpace\Menieres\Services\bin\Debug\net6.0\Models.pdb
+D:\WorkSpace\Menieres\Services\obj\Debug\net6.0\Services.csproj.AssemblyReference.cache
+D:\WorkSpace\Menieres\Services\obj\Debug\net6.0\Services.GeneratedMSBuildEditorConfig.editorconfig
+D:\WorkSpace\Menieres\Services\obj\Debug\net6.0\Services.AssemblyInfoInputs.cache
+D:\WorkSpace\Menieres\Services\obj\Debug\net6.0\Services.AssemblyInfo.cs
+D:\WorkSpace\Menieres\Services\obj\Debug\net6.0\Services.csproj.CoreCompileInputs.cache
+D:\WorkSpace\Menieres\Services\obj\Debug\net6.0\Services.csproj.CopyComplete
+D:\WorkSpace\Menieres\Services\obj\Debug\net6.0\Services.dll
+D:\WorkSpace\Menieres\Services\obj\Debug\net6.0\ref\Services.dll
+D:\WorkSpace\Menieres\Services\obj\Debug\net6.0\Services.pdb
